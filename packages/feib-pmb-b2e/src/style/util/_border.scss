@@ -1,0 +1,86 @@
+// /*************************************
+//  border-width
+// **************************************/
+
+.border-0 {
+  border-width: 0px !important;
+}
+
+.border {
+  border-width: 1px;
+}
+
+.border-l {
+  border-left-width: 1px;
+}
+
+.border-r {
+  border-right-width: 1px;
+}
+
+.border-b {
+  border-bottom-width: 1px;
+}
+
+.border-t {
+  border-top-width: 1px;
+}
+
+// /*************************************
+//  border-style
+// **************************************/
+
+.border-solid {
+  border-style: solid;
+}
+// .border-dashed {
+//   border-style: dashed;
+// }
+// .border-hidden {
+//   border-style: hidden;
+// }
+// .border-none {
+//   border-style: none;
+// }
+
+// /*************************************
+//  border-color
+//  根據 guideline 色碼新增class，不需按照tailwind
+// **************************************/
+
+.border-divider {
+  border-color: $bg-colors-divider;
+}
+
+// /*************************************
+//  border-radius
+//  tailwind class是使用sm/md/l/xl...需要額外記憶對應的px，因此這邊class改用標示px
+// **************************************/
+// .rounded-4px {
+//   border-radius: 4px;
+//   overflow: hidden;
+// }
+
+.rounded-6px {
+  border-radius: 6px;
+}
+
+.rounded-8px {
+  border-radius: 8px;
+}
+
+.rounded-12px {
+  border-radius: 12px;
+}
+
+.rounded-16px {
+  border-radius: 16px;
+}
+
+.rounded-full {
+  border-radius: 50%;
+}
+.rounded-b-none {
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}

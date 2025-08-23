@@ -1,0 +1,37 @@
+// /*************************************
+// body + wrapper
+// **************************************/
+.wrapper {
+  min-width: 1024px;
+}
+
+.wrapper-size {
+  min-width: 1004px;
+  max-width: 1360px;
+  position: relative;
+  height: 100%;
+  margin: 0px auto;
+  padding: 0px 10px;
+}
+
+@media screen and (min-width: 1100px) {
+  .wrapper-size {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+.fetch-error-container1 {
+  height: calc(100vh - 64px);
+  /* header: 64px;*/
+}
+
+.fetch-error-container2 {
+  height: calc(100vh - 104px);
+  /* header: 64px; nav: 56px; */
+}
+
+.fetch-error-container3 {
+  height: calc(100vh - 192px);
+  /* header: 64px; nav: 56px; */
+}

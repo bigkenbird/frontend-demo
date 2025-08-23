@@ -1,0 +1,24 @@
+.list-title-block,
+.list-item-block {
+  display: flex;
+  justify-content: space-between;
+  // 左邊，不折行
+  .item-title-block {
+    flex-shrink: 0;
+  }
+  // 中間，自動grow/shrink，折行，靠左
+  .item-content-left-block {
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+  // 中間，自動grow/shrink，折行，靠右
+  .item-content-block {
+    flex-grow: 1;
+    flex-shrink: 1;
+    text-align: right;
+  }
+  // 右邊，不折行
+  .item-meta-block {
+    flex-shrink: 0;
+  }
+}

@@ -1,0 +1,99 @@
+// /*************************************
+// * form-group
+// **************************************/
+.form-group + .form-group {
+  padding-top: 16px;
+}
+
+// /*************************************
+// * form-title-block 標題區域
+// **************************************/
+.form-title-block {
+  display: flex;
+  align-items: center;
+}
+.form-title {
+  // display: flex;
+  // align-items: center; //英文版*號維持貼上方
+  .required-mark {
+    color: $orange-400;
+  }
+  .form-title-info-icon {
+    margin-left: 4px;
+    vertical-align: text-bottom;
+  }
+}
+.form-title-meta {
+  // flex-shrink: 0; //英文版，右側btn不能shrink-0
+  margin-left: auto;
+}
+
+// /*************************************
+// * form-inner-block 內容區域
+// **************************************/
+// .form-inner-block {
+//   // display: flex;
+//   // align-items: center;
+// }
+
+// /*************************************
+// * form-helper-msg 提示文字 / form-error-msg 錯誤文字
+// **************************************/
+.form-helper-msg {
+  @include text-body-02;
+  color: $neutral-500;
+  padding-top: 4px;
+}
+.is-disabled {
+  .form-helper-msg {
+    color: $neutral-300;
+  }
+}
+.is-error,
+.is-warning {
+  .form-helper-msg {
+    display: none;
+  }
+}
+
+.form-error-msg {
+  @include text-body-02;
+  color: $red-500;
+  padding-top: 4px;
+}
+
+.form-warning-msg {
+  @include text-body-02;
+  color: $yellow-400;
+  padding-top: 4px;
+}
+
+// /*************************************
+// * form-btn-block 右下角btn區
+// **************************************/
+.form-btn-block {
+  margin-top: 8px;
+  text-align: right;
+}
+// /*************************************
+// * 狀態處理 is-disabled is-warning
+// **************************************/
+.form-group.is-disabled {
+  .form-title {
+    color: $neutral-300;
+  }
+  .required-mark {
+    color: $neutral-300;
+  }
+}
+
+// /*************************************
+// * 特殊處理
+// **************************************/
+// * 特別處理datepicker，從外部控制error樣式
+.is-error :deep(.dp__input) {
+  border: 1px solid $red-500;
+  &:focus {
+    border-color: $red-500;
+  }
+}

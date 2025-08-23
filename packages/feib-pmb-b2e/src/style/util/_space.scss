@@ -1,0 +1,122 @@
+// /*************************************
+// margin、padding、gap
+// 4的倍數,參考tailwind
+// 非4的倍數、百分比、其它特殊的：自訂
+// **************************************/
+@mixin setSpace($i, $space) {
+  // margin
+  .mb-#{$i} {
+    margin-bottom: #{$space} !important;
+  }
+  .mt-#{$i} {
+    margin-top: #{$space} !important;
+  }
+  .my-#{$i} {
+    margin-top: #{$space} !important;
+    margin-bottom: #{$space} !important;
+  }
+  .mx-#{$i} {
+    margin-left: #{$space} !important;
+    margin-right: #{$space} !important;
+  }
+  .ml-#{$i} {
+    margin-left: #{$space} !important;
+  }
+  .mr-#{$i} {
+    margin-right: #{$space} !important;
+  }
+  .m-#{$i} {
+    margin: #{$space} !important;
+  }
+
+  // 負margin
+  .-mb-#{$i} {
+    margin-bottom: -#{$space} !important;
+  }
+  .-mt-#{$i} {
+    margin-top: -#{$space} !important;
+  }
+  .-my-#{$i} {
+    margin-top: -#{$space} !important;
+    margin-bottom: -#{$space} !important;
+  }
+  .-mx-#{$i} {
+    margin-left: -#{$space} !important;
+    margin-right: -#{$space} !important;
+  }
+  .-ml-#{$i} {
+    margin-left: -#{$space} !important;
+  }
+  .-mr-#{$i} {
+    margin-right: -#{$space} !important;
+  }
+  .-m-#{$i} {
+    margin: -#{$space} !important;
+  }
+
+  // padding
+  .pb-#{$i} {
+    padding-bottom: #{$space} !important;
+  }
+  .pt-#{$i} {
+    padding-top: #{$space} !important;
+  }
+  .py-#{$i} {
+    padding-top: #{$space} !important;
+    padding-bottom: #{$space} !important;
+  }
+  .px-#{$i} {
+    padding-left: #{$space} !important;
+    padding-right: #{$space} !important;
+  }
+  .pl-#{$i} {
+    padding-left: #{$space} !important;
+  }
+  .pr-#{$i} {
+    padding-right: #{$space} !important;
+  }
+  .p-#{$i} {
+    padding: #{$space} !important;
+  }
+
+  // gap
+  .gap-#{$i} {
+    gap: #{$space};
+  }
+}
+
+@include setSpace(0, '0px');
+// @include setSpace('px', '1px');
+// @include setSpace(2px, '2px');
+@include setSpace(1, '4px');
+@include setSpace(2, '8px');
+@include setSpace(3, '12px');
+@include setSpace(4, '16px');
+@include setSpace(5, '20px');
+@include setSpace(6, '24px');
+@include setSpace(7, '28px');
+// @include setSpace(30px, '30px');
+@include setSpace(8, '32px');
+@include setSpace(9, '36px');
+@include setSpace(10, '40px');
+@include setSpace(11, '44px');
+@include setSpace(12, '48px');
+@include setSpace(14, '56px');
+@include setSpace(16, '64px');
+@include setSpace(17, '68px');
+@include setSpace(18, '72px');
+@include setSpace(20, '80px');
+@include setSpace(25, '100px');
+@include setSpace(27, '108px');
+@include setSpace('auto', 'auto');
+// @include setSpace('64per','64%');
+
+// /*************************************
+// 非4的倍數、百分比、其它特殊的：自訂
+// **************************************/
+.ml-13px {
+  margin-left: 13px;
+}
+.ml-6px {
+  margin-left: 6px;
+}

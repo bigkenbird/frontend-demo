@@ -1,0 +1,53 @@
+.is-error {
+  border: 1px solid $text-error;
+  border-radius: 6px;
+}
+
+:deep(.ql-snow) {
+  border-color: $bg-colors-divider;
+}
+
+:deep(.is-focus .ql-snow) {
+  background-color: $bg-colors-white;
+}
+
+:deep(.ql-toolbar) {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+:deep(.ql-container) {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+:deep(.is-error .ql-snow) {
+  border: none;
+  border-bottom: 1px solid $bg-colors-divider;
+}
+:deep(.is-error .ql-container) {
+  border: none;
+}
+
+:deep(.ql-picker) {
+  color: $text-primary;
+}
+
+:deep(.ql-stroke) {
+  stroke: $text-primary;
+}
+:deep(.ql-fill) {
+  fill: $text-primary;
+}
+
+:deep(.ql-editor) {
+  min-height: 140px;
+  li[data-list=ordered] {
+    &.ql-indent-1 > .ql-ui:before {
+      content: counter(list-1, disc);
+    }
+    &.ql-indent-2 > .ql-ui:before {
+      content: counter(list-1, circle);
+    }
+  }
+}

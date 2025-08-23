@@ -1,0 +1,36 @@
+{
+  "name": "@twix/feib-lib-vue",
+  "private": true,
+  "version": "0.0.1",
+  "module": "common/feib-lib-vue-ts.js",
+  "types": "common/feib-lib-vue-ts.d.ts",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "build-prod": "vue-tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@twix/ix-lib-vue": "0.0.1",
+    "@twix/feib-lib-vue": "0.0.1",
+    "@vuepic/vue-datepicker": "4.4.0",
+    "date-fns": "2.29.3",
+    "vue": "3.4.30",
+    "vue-i18n": "9.13.1",
+    "vue-router": "4.4.0"
+  },
+  "devDependencies": {
+    "rollup-plugin-visualizer": "5.9.0",
+    "@types/node": "20.12.11",
+    "@vitejs/plugin-vue": "4.6.2",
+    "commander": "12.0.0",
+    "fast-glob": "3.3.2",
+    "gh-pages": "6.1.1",
+    "prettier": "3.2.5",
+    "sass": "1.77.0",
+    "typescript": "5.5.2",
+    "vite": "4.5.3",
+    "vue-tsc": "2.0.16",
+    "vite-plugin-dts": "2.2.0"
+  }
+}

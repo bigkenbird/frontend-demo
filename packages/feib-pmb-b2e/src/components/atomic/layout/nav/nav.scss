@@ -1,0 +1,82 @@
+nav {
+  background-color: $white;
+  box-shadow: 0px 1px 0px 0px #e4e4e4;
+  min-height: 48px;
+  position: relative;
+  z-index: 1;
+  ul {
+    li.nav-list-item {
+      background-color: $white;
+      height: 48px;
+      &.active,
+      &:hover {
+        background-color: $background-color-yellow-02;
+        font-weight: 700;
+        ul.sub-list-block {
+          display: block;
+        }
+      }
+    }
+  }
+  ul.sub-list-block {
+    // max-height: 414px;
+    display: none;
+    position: absolute;
+    z-index: 1;
+    top: 48px;
+    left: -1px;
+    li.sub-list-item {
+      min-width: 240px;
+      background-color: $bg-colors-white;
+      cursor: pointer;
+      &:hover {
+        background-color: $bg-colors-hover;
+      }
+    }
+    li.sub-list-item.disabled {
+      color: $grayscale-04;
+      &:hover {
+        background-color: $bg-colors-white;
+        cursor: not-allowed;
+      }
+    }
+    &::after {
+      clear: both;
+    }
+  }
+}
+
+.login-loader {
+  width: 24px;
+  aspect-ratio: 1;
+  --_g: no-repeat radial-gradient(farthest-side, #f86262 90%, #0000);
+  background: var(--_g), var(--_g), var(--_g), var(--_g);
+  background-size: 40% 40%;
+  animation: balls 0.5s infinite;
+}
+
+@keyframes balls {
+  0% {
+    background-position:
+      0 0,
+      100% 0,
+      100% 100%,
+      0 100%;
+  }
+  40%,
+  50% {
+    background-position:
+      100% 100%,
+      100% 0,
+      0 0,
+      0 100%;
+  }
+  90%,
+  100% {
+    background-position:
+      100% 100%,
+      0 100%,
+      0 0,
+      100% 0;
+  }
+}

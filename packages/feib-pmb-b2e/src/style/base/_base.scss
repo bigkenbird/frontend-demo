@@ -1,0 +1,17 @@
+// /*************************************
+//  設定字型、文字顏色、文字間距、元素基本樣式
+// **************************************/
+
+html,
+body {
+  font-family: $font;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  background-color: $neutral-50;
+}

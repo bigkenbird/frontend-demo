@@ -1,0 +1,299 @@
+// =========
+// reset
+// ==========
+/* http://meyerweb.com/eric/tools/css/reset/ 
+    v2.0 | 20110126
+    License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  -webkit-transition: all 0s;
+  -moz-transition: all 0s;
+  -ms-transition: all 0s;
+  -o-transition: all 0s;
+  transition: all 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+a:visited,
+a:hover,
+a:active,
+a:focus {
+  text-decoration: none;
+  -webkit-transition: all 0s;
+  -moz-transition: all 0s;
+  -ms-transition: all 0s;
+  -o-transition: all 0s;
+  transition: all 0s;
+  outline: none;
+  cursor: pointer;
+}
+
+button {
+  display: block;
+  text-align: center;
+  cursor: pointer;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  border: 0;
+  box-shadow: none;
+  font: inherit;
+  color: inherit;
+  &::-moz-focus-inner {
+    border: 0;
+  }
+  &:focus,
+  &:active {
+    outline: none;
+  }
+}
+
+img {
+  vertical-align: top;
+}
+// input
+input {
+  outline: 0;
+  -webkit-appearance: none; /*消除safari內陰影*/
+  -moz-appearance: none;
+  appearance: none;
+  outline: 0;
+  &:focus {
+    outline: none;
+  }
+}
+
+// 消除safari自動產生的按鈕
+input::-webkit-credentials-auto-fill-button,
+input::-webkit-contacts-auto-fill-button {
+  visibility: hidden;
+  display: none !important;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+}
+
+// 隱藏 input number 預設樣式
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+// placeholder
+input::-webkit-input-placeholder {
+  font-size: inherit;
+  opacity: 1;
+  font-weight: normal;
+}
+
+input:-moz-placeholder {
+  font-size: inherit;
+  opacity: 1;
+  font-weight: normal;
+}
+
+input::-moz-placeholder {
+  font-size: inherit;
+  font-weight: normal;
+  opacity: 1;
+}
+
+input:-ms-input-placeholder {
+  font-size: inherit;
+  opacity: 1;
+  font-weight: normal;
+}
+
+::placeholder {
+  font-size: inherit;
+  opacity: 1;
+  font-weight: normal;
+}
+
+input[type='text'],
+input[type='password'],
+input[type='tel'],
+input[type='number'] {
+  // box-shadow: none;
+  // background: #fff;
+  // border-radius: 0;
+  outline: 0;
+}
+
+select {
+  position: relative;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+  border: 0;
+  &::-ms-expand {
+    display: none;
+  }
+  &:focus {
+    outline: 0;
+  }
+}
+
+textarea {
+  resize: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  &:focus {
+    outline: none;
+  }
+}
+
+textarea,
+input,
+button,
+select {
+  font-family: inherit;
+}
+
+input,
+textarea,
+select {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+}

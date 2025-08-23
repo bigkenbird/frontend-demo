@@ -1,0 +1,40 @@
+// ================
+@import '_color.scss';
+@import '_typography.scss';
+
+// 主要顏色
+$main-color: $primary-colors-normal;
+// 次要顏色：目前用在 button active 的時候
+$second-color: $primary-colors-hover;
+
+// /*************************************
+//  typography system
+//  根據guideline制訂
+// **************************************/
+
+$font: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'San Francisco',
+  'Helvetica Neue', 'PingFang TC', 'NotoSansCJK', 'Microsoft JhengHei',
+  sans-serif, Arial;
+
+:root,
+:host {
+  // /*************************************
+  //  根據 guideline 制訂
+  //  color
+  // **************************************/
+  --white: #ffffff;
+
+  // grayscale
+  --grayscale-01: #323b44;
+  --grayscale-02: rgba(50, 59, 68, 0.85);
+  --grayscale-03: rgba(50, 59, 68, 0.5);
+  --grayscale-04: #d7d7d7;
+  --grayscale-05: #ebe9e9;
+
+  // fill
+  --fill-default: rgba(50, 59, 68, 0.06);
+  --fill-background: #fafaf7;
+  --fill-disabled: #d7d8da;
+  --fill-divider: rgba(50, 59, 68, 0.16);
+  --fill-mask: rgba(0, 0, 0, 0.7);
+  }

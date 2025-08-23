@@ -1,0 +1,139 @@
+/*************************************
+* result-animation 主要的外框
+**************************************/
+.result-animation {
+  width: 28px;
+  height: 28px;
+  position: relative;
+}
+
+/*************************************
+* result-animation-bg 圓形背景
+**************************************/
+.result-animation-bg {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  circle {
+    animation: draw-circle 1s linear forwards;
+
+    stroke: $white;
+    stroke-width: 2;
+    fill: transparent;
+    stroke-dasharray: 110;
+    stroke-dashoffset: 110;
+    transform-origin: 50% 50% 0;
+    transform: scaleX(-1) rotate(-90deg);
+    // stroke-dashoffset: 0;
+  }
+}
+
+// Drawing circle animation
+@keyframes draw-circle {
+  0% {
+    stroke-dashoffset: 110;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+
+  // 100% {
+  // 	stroke-dashoffset: -220;
+  // }
+}
+
+.result-animation-mark {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  &::before {
+    content: '';
+    display: block;
+    width: 0;
+    height: 15px;
+    background: url('img/success_mark.svg') no-repeat left center / 15px 15px;
+    animation: success 1.5s;
+    // animation-delay: 1s;
+    animation-fill-mode: forwards;
+  }
+}
+
+.is-fail {
+  .result-animation-mark {
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      width: 2px;
+      height: 0;
+      border-radius: 10px;
+      background-color: $bg-colors-white;
+      animation-fill-mode: forwards;
+      transform-origin: top center;
+    }
+    &::before {
+      left: 1px;
+      animation: fail-l 1.5s;
+      transform: rotate(-45deg);
+      animation-fill-mode: forwards;
+    }
+    &::after {
+      right: 1px;
+      animation: fail-r 1.2s;
+      transform: rotate(45deg);
+      animation-fill-mode: forwards;
+    }
+  }
+}
+@keyframes success {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 0;
+  }
+  100% {
+    width: 15px;
+  }
+}
+
+@keyframes fail-r {
+  0% {
+    height: 0;
+  }
+  50% {
+    height: 0;
+  }
+  100% {
+    height: 16px;
+  }
+}
+
+@keyframes fail-l {
+  0% {
+    height: 0;
+  }
+  75% {
+    height: 0;
+  }
+  100% {
+    height: 16px;
+  }
+}

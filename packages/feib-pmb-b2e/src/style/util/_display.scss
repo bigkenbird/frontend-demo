@@ -1,0 +1,21 @@
+// /*************************************
+// 新增時可統一看tailwind
+// **************************************/
+.flex {
+  display: flex;
+}
+.block {
+  display: block;
+}
+.inline-block {
+  display: inline-block;
+}
+.inline-flex {
+  display: inline-flex;
+}
+.grid {
+  display: grid;
+}
+.hidden {
+  display: none !important;
+}

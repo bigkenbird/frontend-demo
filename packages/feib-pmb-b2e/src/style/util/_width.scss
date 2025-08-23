@@ -1,0 +1,104 @@
+/*************************************
+*		width - px
+// 4的倍數,參考tailwind
+// 非4的倍數、百分比、其它特殊的：自訂
+**************************************/
+// 4的倍數
+@mixin setWidth($i, $space) {
+  .w-#{$i} {
+    width: #{$space} !important;
+  }
+}
+@include setWidth(0, "0px");
+@include setWidth(1, "4px");
+@include setWidth(2, "8px");
+@include setWidth(3, "12px");
+@include setWidth(4, "16px");
+@include setWidth(5, "20px");
+@include setWidth(6, "24px");
+@include setWidth(8, "32px");
+@include setWidth(10, "40px");
+@include setWidth(12, "48px");
+@include setWidth(14, "56px");
+@include setWidth(15, "60px");
+@include setWidth(16, "64px");
+@include setWidth(18, "72px");
+@include setWidth(20, "80px");
+@include setWidth(21, "84px");
+@include setWidth(22, "88px");
+@include setWidth(24, "96px");
+@include setWidth(25, "100px");
+@include setWidth(27, "108px");
+@include setWidth(28, "112px");
+@include setWidth(30, "120px");
+@include setWidth(34, "136px");
+@include setWidth(36, "144px");
+@include setWidth(38, "152px");
+@include setWidth(40, "160px");
+@include setWidth(44, "176px");
+@include setWidth(48, "192px");
+@include setWidth(52, "208px");
+@include setWidth(54, "216px");
+@include setWidth(55, "220px");
+@include setWidth(56, "224px");
+@include setWidth(58, "232px");
+@include setWidth(60, "240px");
+
+//  非4的倍數、百分比、其它特殊的：自訂
+.w-195px {
+  width: 195px;
+}
+.w-250px {
+  width: 250px;
+}
+.w-296px {
+  width: 296px;
+}
+.w-330px {
+  width: 330px;
+}
+.w-370px {
+  width: 370px;
+}
+.w-400px {
+  width: 400px;
+}
+.w-418px {
+  width: 418px;
+}
+.w-450px {
+  width: 450px;
+}
+
+/*************************************
+*		width - 其它，參考tailwind
+**************************************/
+.w-full {
+  width: 100%;
+}
+.w-screen {
+  width: 100vw;
+}
+.w-auto {
+  width: auto;
+}
+
+.min-w-74px {
+  min-width: 74px;
+}
+.min-w-450px {
+  min-width: 450px;
+}
+.max-w-88px {
+  max-width: 88px;
+}
+.max-w-450px {
+  max-width: 450px;
+}
+.max-w-700px {
+  max-width: 700px;
+}
+
+.w-1\/5 {
+  width: 20%;
+}

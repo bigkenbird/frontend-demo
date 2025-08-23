@@ -1,0 +1,15 @@
+// /*************************************
+// * 欄位之間的連接線連接線
+// **************************************/
+// 直的1
+.form-table-half-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.hyphen {
+  background-color: $bg-colors-divider;
+  border-radius: 50%;
+  width: 14px;
+  height: 2px;
+  margin-top: 18px;
+}

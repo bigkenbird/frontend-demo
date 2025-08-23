@@ -1,0 +1,47 @@
+// /*************************************
+//  position
+// **************************************/
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+.static {
+  position: static;
+}
+
+.left-2 {
+  left: 8px;
+}
+.left-4 {
+  left: 16px;
+}
+.top-0 {
+  top: 0px;
+}
+.top-2 {
+  top: 8px;
+}
+
+.right-0 {
+  right: 0px;
+}
+.right-1 {
+  right: 1px;
+}
+.right-2 {
+  right: 8px;
+}
+
+.bottom-0 {
+  bottom: 0;
+}
+
+.bottom-2 {
+  bottom: 8px;
+}

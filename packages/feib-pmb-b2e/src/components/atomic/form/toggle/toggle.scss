@@ -1,0 +1,64 @@
+// /*************************************
+// *      form switch toggle
+// **************************************/
+
+.switch-toggle {
+  display: inline-flex;
+}
+.switch-toggle + .switch-toggle {
+  margin-left: 8px;
+}
+.switch-toggle input[type='checkbox'] {
+  display: none;
+}
+// /*************************************
+// *      switch toggle circle widget
+// **************************************/
+.switch-toggle-widget {
+  width: 55px;
+  height: 28px;
+  border-radius: 50px;
+  background-color: $bg-colors-divider;
+  overflow: hidden;
+  position: relative;
+  display: block;
+  transition: 0.3s;
+  &:before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background-color: $bg-colors-input;
+    border-radius: 100%;
+    display: block;
+    top: 50%;
+    left: 5px;
+    transform: translate(0, -50%);
+    position: absolute;
+    transition: 0.3s;
+  }
+}
+
+.switch-toggle-widget + span {
+  margin-left: 8px;
+}
+
+.switch-toggle input[type='checkbox']:disabled + .switch-toggle-widget {
+  background-color: $neutral-100;
+  &:before {
+    background-color: $neutral-200;
+  }
+}
+
+.switch-toggle input[type='checkbox']:checked + .switch-toggle-widget {
+  background-color: $brand-color-yellow;
+  &:before {
+    transform: translate(25px, -50%);
+    background-color: $bg-colors-white;
+  }
+}
+.switch-toggle input[type='checkbox']:checked:disabled + .switch-toggle-widget {
+  background-color: $green-100;
+  &:before {
+    background-color: $bg-colors-white;
+  }
+}

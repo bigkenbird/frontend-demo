@@ -1,0 +1,162 @@
+// /*************************************
+// *      form checobox
+// **************************************/
+
+.checkbox-box {
+  user-select: none;
+  // cursor: pointer;
+}
+
+.checkbox-box input[type='checkbox'] {
+  display: none;
+}
+// /*************************************
+// *      一般checkbox 的button
+// **************************************/
+.checkbox-box {
+  display: inline-flex;
+  align-items: center;
+
+  .checkbox-widget {
+    flex-shrink: 0;
+    margin: 4px 8px 4px 0;
+    display: block;
+    width: 22px;
+    height: 22px;
+    left: 0;
+    border-radius: 4px;
+    border: 1px solid $bg-colors-divider;
+    position: relative;
+    &:last-child {
+      margin-right: 0;
+    }
+    &:hover {
+      border-color: $main-color;
+      background-color: $bg-colors-lightblue;
+    }
+  }
+
+  input[type='checkbox']:checked + .checkbox-widget {
+    background-color: $brand-color-yellow;
+    border: 1px solid $brand-color-yellow;
+    &::before {
+      content: '';
+      width: 7px;
+      height: 2px;
+      background-color: $bg-colors-white;
+      top: 11px;
+      left: 2px;
+      transform: rotate(45deg);
+      position: absolute;
+      z-index: 0;
+    }
+    &::after {
+      content: '';
+      width: 2px;
+      height: 13.5px;
+      background-color: $bg-colors-white;
+      top: 3px;
+      left: 11px;
+      transform: rotate(45deg);
+      position: absolute;
+      z-index: 0;
+    }
+  }
+  input[type='checkbox']:disabled + .checkbox-widget {
+    border-color: $text-disabled;
+    background-color: $bg-colors-disabled;
+  }
+
+  input[type='checkbox']:checked:disabled + .checkbox-widget {
+    background-color: $bg-colors-disabled;
+    border-color: $text-disabled;
+    &::before,
+    &::after {
+      background-color: $text-disabled;
+    }
+  }
+  input[type='checkbox']:indeterminate + .checkbox-widget {
+    background-color: $main-color;
+    border: 1px solid $main-color;
+    &::before {
+      content: '';
+      width: 8px;
+      height: 2px;
+      background-color: $bg-colors-white;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      position: absolute;
+      z-index: 1;
+    }
+  }
+  input[type='checkbox']:indeterminate:disabled + .checkbox-widget {
+    background-color: $text-disabled;
+    border-color: $text-disabled;
+  }
+  // &.is-oldChecked {
+  //   input[type='checkbox']:checked + .checkbox-widget {
+  //     border-color: $bg-colors-divider;
+  //     background-color: $bg-colors-disabled;
+  //     &::before,
+  //     &::after {
+  //       background-color: $bg-colors-divider;
+  //     }
+  //   }
+  // }
+  &.is-newChecked {
+    input[type='checkbox']:checked + .checkbox-widget {
+      border-color: $bg-colors-success;
+      background-color: $bg-colors-success;
+      &::before,
+      &::after {
+        background-color: $bg-colors-white;
+      }
+    }
+  }
+  // &.is-newNon {
+  //   .checkbox-widget {
+  //     border-color: $main-color;
+  //     background-color: $bg-colors-checkbox-new-non;
+  //   }
+  // }
+}
+
+// /*************************************
+// *     一般checkbox的 txt
+// **************************************/
+.checkbox-box .checkbox-text {
+  color: $text-primary;
+}
+
+.checkbox-box
+  input[type='checkbox']:disabled
+  + .checkbox-widget
+  + .checkbox-text {
+  cursor: default;
+  color: $text-disabled;
+}
+
+// /*************************************
+// * checkbox-group
+// **************************************/
+.checkbox-group {
+  .checkbox-box:not(:last-child) {
+    margin-right: 16px;
+  }
+}
+
+// /*************************************
+// * error
+// **************************************/
+.checkbox-group.is-error,
+.checkbox-box.is-error {
+  .checkbox-widget {
+    border-color: $text-error;
+  }
+}
+.form-error-msg {
+  @include text-body-02;
+  color: $text-error;
+  padding-top: 2px;
+}

@@ -1,0 +1,394 @@
+/******************************************************************************  
+2. 廣告特有的樣式用命名的方式
+ ****************************************************************************** /
+/*************************************** 
+ ads 共用          
+***************************************/
+.ads {
+  font-family: 'lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    'San Francisco', 'Helvetica Neue', 'PingFang TC', 'NotoSansCJK',
+    'Microsoft JhengHei', sans-serif, Arial;
+  font-size: 16px;
+  color: #323b44;
+  line-height: 1.5;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ads img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  vertical-align: top;
+}
+
+/*************************************** 
+ ads-card
+***************************************/
+.ads-card {
+  background-color: #fff;
+  border-radius: 32px;
+  box-shadow: 0px 2px 20px 0px rgba(52, 46, 45, 0.06);
+}
+
+/*************************************** 
+ ads-dialog           
+ ***************************************/
+.ads-dialog {
+  padding-top: 0;
+}
+
+.ads-dialog .dialog-header .dialog-image:not(:empty) {
+  width: calc(100% + 32px);
+  margin-left: -16px;
+}
+
+/*************************************** 
+ ads-fixed-banner 懸浮小圖
+ ***************************************/
+.ads-fixed-banner {
+  position: fixed;
+  z-index: 100;
+  right: 0;
+  bottom: calc(73px + env(safe-area-inset-bottom));
+}
+.ads-fixed-banner .ads-close-btn {
+  position: absolute;
+  top: -4px;
+  right: 8px;
+  cursor: pointer;
+}
+.ads-fixed-banner .ads-close-btn::before {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ads-fixed-banner .ads-img {
+  width: 80px;
+  height: 70px;
+}
+.ads-fixed-banner .ads-title {
+  padding: 3px 8px 3px 13px;
+  border-radius: 32px 0 0 32px;
+  box-shadow: 0px 2px 20px 0px rgba(52, 46, 45, 0.06);
+  background-color: #fff;
+  color: #000;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: normal;
+}
+
+/*有footer的時候稍微調整底部距離*/
+.page-body.has-footer .ads-fixed-banner {
+  // page-footer-height = 72px
+  bottom: calc(25px + 72px + env(safe-area-inset-bottom));
+}
+
+/*************************************** 
+ ads-banner-carousel 橫幅小版廣告
+ ***************************************/
+.ads-banner-carousel .ads-img-wrapper {
+  position: relative;
+}
+.ads-banner-carousel .ads-img-wrapper::before {
+  content: '';
+  display: block;
+  width: 100%;
+  padding-top: 37.5%;
+}
+.ads-banner-carousel .ads-img-wrapper .ads-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+}
+
+/*************************************** 
+ ads-manual-carousel 手動輪播廣告
+ ***************************************/
+.ads-manual-carousel .swiper {
+  padding: 8px 16px; // 因為有陰影要保留上下padding，不然會被切掉
+}
+.ads-manual-carousel .ads-card {
+  padding: 8px 8px 24px;
+}
+.ads-manual-carousel .ads-title {
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1.625rem;
+  margin-top: 12px;
+  overflow: hidden;
+  padding: 0 8px;
+}
+.ads-manual-carousel .ads-content {
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: rgba(50, 59, 68, 0.85);
+  margin-top: 8px;
+  padding: 0 8px;
+}
+.ads-manual-carousel .ads-img-wrapper {
+  position: relative;
+}
+.ads-manual-carousel .ads-img-wrapper::before {
+  content: '';
+  display: block;
+  width: 100%;
+  padding-top: 66.6%;
+}
+.ads-manual-carousel .ads-img-wrapper .ads-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+}
+
+/*************************************** 
+ ads-banner 橫幅小版廣告
+ ***************************************/
+.ads-banner {
+  position: relative;
+  border-radius: 32px 32px 32px 0px;
+  overflow: hidden;
+}
+.ads-banner .ads-banner-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  padding: 16px;
+  border-radius: 0px 0px 0px 40px;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(5px);
+}
+.ads-banner .ads-img-wrapper {
+  position: relative;
+}
+.ads-banner .ads-img-wrapper::before {
+  content: '';
+  display: block;
+  width: 100%;
+  padding-top: 35%;
+}
+.ads-banner .ads-img-wrapper .ads-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/*************************************** 
+ ads-full-carousel 輪播滿版廣告
+ ***************************************/
+.ads-full-carousel .ads-img-wrapper {
+  position: relative;
+  border-radius: 32px 32px 32px 0px;
+  overflow: hidden;
+}
+.ads-full-carousel .ads-img-wrapper::before {
+  content: '';
+  display: block;
+  width: 100%;
+  padding-top: 66%;
+}
+.ads-full-carousel .ads-img-wrapper .ads-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.ads-full-carousel {
+  position: relative;
+}
+.ads-full-carousel .ads-card {
+  position: absolute;
+  right: 0;
+  bottom: 4px;
+  z-index: 1;
+  width: calc(100% - 16px);
+  border-radius: 32px 0px 32px 32px;
+  padding: 10px 16px;
+  min-height: 93px;
+
+  display: flex;
+  box-shadow: 0px 2px 20px 0px rgba(52, 46, 45, 0.06);
+}
+.ads-full-carousel .ads-card .ads-card-body {
+  flex-grow: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.ads-full-carousel .ads-card .ads-card-side {
+  flex-shrink: 0;
+  position: relative;
+}
+.ads-full-carousel .ads-title.opacity-0,
+.ads-full-carousel .ads-content.opacity-0 {
+  opacity: 0;
+}
+.ads-full-carousel .ads-title {
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1.625rem;
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+.ads-full-carousel .ads-content {
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: rgba(50, 59, 68, 0.85);
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+/*輪播paginaiton樣式*/
+.ads-full-carousel .swiper {
+  padding-bottom: 20px;
+}
+.ads-full-carousel .swiper-pagination-space {
+  width: 80px;
+}
+.ads-full-carousel .swiper-pagination:not(.swiper-pagination-lock) {
+  position: absolute;
+  top: 0;
+  padding: 10px 0 8px;
+}
+.ads-full-carousel
+  .swiper-pagination:not(.swiper-pagination-lock)
+  .swiper-pagination-bullet {
+  width: 6px;
+  height: 6px;
+  border-radius: 6px;
+  background-color: rgba(50, 59, 68, 0.2);
+  transition: width 0.2s;
+  opacity: 1;
+}
+
+.ads-full-carousel
+  .swiper-pagination:not(.swiper-pagination-lock)
+  .swiper-pagination-bullet {
+  margin: 0 2px !important;
+}
+
+.ads-full-carousel
+  .swiper-pagination:not(.swiper-pagination-lock)
+  .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  opacity: 1;
+  // width: 12px;
+  background-color: rgba(184, 45, 45, 1);
+}
+
+/*************************************** 
+ ads-large-carousel 橫幅小版廣告
+ ***************************************/
+.ads-large-carousel .ads-img-wrapper {
+  position: relative;
+}
+.ads-large-carousel .ads-img-wrapper::before {
+  content: '';
+  display: block;
+  width: 100%;
+  padding-top: 62.67%;
+}
+.ads-large-carousel .ads-img-wrapper .ads-img {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+}
+.ads-large-carousel .ads-img-wrapper::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  background: linear-gradient(
+    180deg,
+    rgba(239, 239, 239, 0) 41%,
+    rgba(50, 59, 68, 0.4) 72.69%,
+    rgba(27, 32, 37, 0.7) 91.5%
+  );
+}
+.ads-large-carousel .ads-img-wrapper .ads-title {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  bottom: 16px;
+  width: 100%;
+  padding: 0 16px;
+  max-height: 100%;
+  color: #ffffff;
+  font-weight: 600;
+}
+.ads-large-carousel .swiper-wrapper {
+  align-items: stretch;
+}
+.ads-large-carousel .swiper-wrapper .swiper-slide {
+  height: auto;
+  position: relative;
+}
+.ads-large-carousel
+  .swiper-wrapper
+  .swiper-slide.swiper-slide-prev
+  .ads-img-wrapper {
+  transform: scale(0.9);
+  transform-origin: center right;
+}
+.ads-large-carousel
+  .swiper-wrapper
+  .swiper-slide.swiper-slide-next
+  .ads-img-wrapper {
+  transform: scale(0.9);
+  transform-origin: center left;
+}
+.ads-large-carousel .swiper-pagination:not(.swiper-pagination-lock) {
+  position: static;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 0 8px;
+}
+.ads-large-carousel
+  .swiper-pagination:not(.swiper-pagination-lock)
+  .swiper-pagination-bullet {
+  width: 6px;
+  height: 6px;
+  border-radius: 6px;
+  background-color: #323b44;
+  transition: width 0.2s;
+}
+
+.ads-large-carousel
+  .swiper-pagination:not(.swiper-pagination-lock)
+  .swiper-pagination-bullet:not(.swiper-pagination-bullet-active) {
+  margin: 0 3px !important;
+}
+.ads-large-carousel
+  .swiper-pagination:not(.swiper-pagination-lock)
+  .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  opacity: 1;
+  width: 20px;
+  background-color: #b82d2d;
+}

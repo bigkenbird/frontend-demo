@@ -1,0 +1,53 @@
+// /*************************************
+// *
+// **************************************/
+.toast-dialog {
+  width: 360px;
+  min-height: 40px;
+  padding: 12px 16px; //不同裝置吃不同字型,字體長度不同。左右padding縮小一點，避免空間不夠折行
+  border-radius: 12px;
+  position: absolute;
+  bottom: 50px;
+  right: 0%;
+  transform: translate(-50%, -50%);
+  .toast-icon {
+    margin-bottom: 4px;
+    svg {
+      margin: 0px auto;
+    }
+  }
+  .toast-txt {
+    @include text-body-01E;
+    text-align: center;
+  }
+  .close {
+    color: $grayscale-02;
+    cursor: pointer;
+  }
+  p {
+    @include text-body-02;
+    color: $grayscale-02;
+  }
+  &.success {
+    color: $highlight-positive;
+    background-color: $white;
+    border: 1px solid $highlight-positive;
+  }
+  &.error {
+    color: $highlight-negative;
+    background-color: $white;
+    border: 1px solid $highlight-negative;
+  }
+}
+// /*************************************
+// vue transition 動畫(css需放在.toast-dialog後方，以免被覆蓋)
+// **************************************/
+.animate-toast-enter-active,
+.animate-toast-leave-active {
+  transition: opacity 0.3s ease-in-out;
+}
+
+.animate-toast-enter-from,
+.animate-toast-leave-to {
+  opacity: 0;
+}

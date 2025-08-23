@@ -1,0 +1,94 @@
+// /*************************************
+// 彈跳視窗，中間白色card
+// **************************************/
+.dialog-center-area {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  max-width: 960px;
+  max-height: calc(
+    (100vh / 4 * 3) - env(safe-area-inset-top) - env(safe-area-inset-bottom)
+  );
+  width: calc(100% - 64px);
+  @media screen and (max-width: 360px) {
+    width: calc(100% - 32px);
+  }
+  display: flex;
+  flex-direction: column;
+  &.extra-large {
+    max-width: 1400px;
+  }
+  &.large {
+    max-width: 960px;
+  }
+  &.middle {
+    max-width: 832px;
+  }
+  &.small {
+    max-width: 420px;
+  }
+}
+
+.dialog {
+  background: $white;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  border: 1px solid $neutral-200;
+  overflow: hidden;
+
+  // 純圖示，透明背景
+  &.bg-transparent {
+    background: transparent;
+    border-color: transparent;
+    padding: 0;
+  }
+  &.scroll {
+    overflow: scroll;
+  }
+}
+
+.text-gray {
+  color: Silver;
+}
+
+.text-red {
+  color: red;
+}
+
+.dialog-loader {
+  margin: auto;
+  width: 24px;
+  aspect-ratio: 1;
+  --_g: no-repeat radial-gradient(farthest-side, #ffc83b 90%, #0000);
+  background: var(--_g), var(--_g), var(--_g), var(--_g);
+  background-size: 40% 40%;
+  animation: balls 0.5s infinite;
+}
+
+@keyframes balls {
+  0% {
+    background-position:
+      0 0,
+      100% 0,
+      100% 100%,
+      0 100%;
+  }
+  40%,
+  50% {
+    background-position:
+      100% 100%,
+      100% 0,
+      0 0,
+      0 100%;
+  }
+  90%,
+  100% {
+    background-position:
+      100% 100%,
+      0 100%,
+      0 0,
+      100% 0;
+  }
+}

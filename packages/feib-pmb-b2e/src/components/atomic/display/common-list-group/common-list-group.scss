@@ -1,0 +1,24 @@
+.common-list-group {
+  :deep(.list-title-block) {
+    padding-bottom: 12px;
+    .item-title,
+    .item-content {
+    }
+  }
+  :deep(.list-item-block) {
+    & + .list-item-block {
+      padding-top: 16px;
+    }
+    // .item-title {
+    //   color: $neutral-500;
+    //   @include text-body-02;
+    // }
+    // .item-content {
+    //   padding-left: 8px;
+    //   @include text-body-02;
+    // }
+    > * + * {
+      padding-left: 8px;
+    }
+  }
+}

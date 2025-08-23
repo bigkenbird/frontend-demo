@@ -1,0 +1,13 @@
+@mixin button {
+  border: 1px solid $bg-colors-divider;
+  border-radius: 4px;
+  padding: 9px; // border關係 10 - 1
+}
+
+.button {
+  @include button;
+  &.disabled {
+    color: $bg-colors-divider;
+    cursor: not-allowed;
+  }
+}

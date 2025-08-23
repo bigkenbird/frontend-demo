@@ -1,0 +1,14 @@
+.flag {
+  width: 20px;
+  height: 20px;
+  background: url('') no-repeat center center / contain;
+}
+.flag-usd {
+  background-image: url('@/assets/img/flag/usd.png');
+}
+.flag-cny {
+  background-image: url('@/assets/img/flag/cny.png');
+}
+.flag-jpy {
+  background-image: url('@/assets/img/flag/jpy.png');
+}

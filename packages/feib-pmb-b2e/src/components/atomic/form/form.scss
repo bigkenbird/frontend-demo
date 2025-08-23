@@ -1,0 +1,216 @@
+// /*************************************
+// * 有下拉區塊的要多包一層
+// **************************************/
+.form-item {
+  position: relative;
+  width: 100%;
+  display: inline-block;
+}
+
+.form-item .is-disabled {
+  pointer-events: none;
+}
+
+// /*************************************
+// * 輸入區塊 - 外框
+// **************************************/
+.form-item-enter-block {
+  width: 100%;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid $bg-colors-divider;
+  border-radius: 6px;
+  @include text-body-01;
+  color: $text-placeholder;
+}
+.table-main {
+  .input {
+    .form-item-enter-block {
+      border-radius: 12px;
+    }
+  }
+}
+
+.form-item-enter-block.is-disabled {
+  background-color: $bg-colors-disabled;
+  border: 1px solid $bg-colors-divider;
+  color: $text-disabled;
+}
+
+//從外層<FormGroup>控制錯誤訊息
+// .form-group.is-error .form-item-enter-block,
+//單顆使用時控制錯誤訊息
+.form-item-enter-block.is-error {
+  border: 1px solid $text-error;
+}
+
+//警告訊息
+.form-item-enter-block.is-warning {
+  border: 1px solid $yellow-400;
+}
+
+// 外觀效果等於input focus時
+.form-item-enter-block:focus-within,
+.form-item-enter-block.is-focus {
+  border: 1px solid $brand-color-yellow;
+  caret-color: $brand-color-yellow;
+}
+
+.form-item-enter-block.is-typing {
+  border: 1px solid $main-color;
+  box-shadow: 0px 0px 0px 2px $blue-100;
+}
+
+// /*************************************
+// * 輸入區塊 - 外框（dropdown 特殊處理）
+// **************************************/
+// dropdown 特殊
+// .form-item-enter-block.dropdown-enter-block {
+//   cursor: pointer;
+// }
+
+// /*************************************
+// * 輸入區塊 - 左、中、右
+// **************************************/
+.form-item-enter-block-inner {
+  flex-grow: 1;
+  flex-shrink: 1;
+  display: flex;
+  align-items: center;
+
+  svg {
+    flex-shrink: 0;
+  }
+
+  // 調整 padding 讓 input 點整個框都會 focus
+  padding: 6px 0; // 有 1px border
+  &:first-child {
+    padding-left: 15px;
+  }
+  &:last-child {
+    padding-right: 11px;
+  }
+}
+
+// dropdown特殊
+.dropdown-enter-block .form-item-enter-block-inner {
+  width: calc(100% - 44px);
+}
+.dropdown-enter-block .overlayVisible {
+  background-color: $bg-colors-white;
+}
+
+.form-item-enter-block-rt,
+.form-item-enter-block-lt {
+  flex-shrink: 0;
+  height: 24px; //不加的話放svg時高度會變很高
+  display: flex;
+  align-items: center;
+}
+
+.form-item-enter-block-rt {
+  margin-left: 8px; // 不用 gap 是因為要支援的版本問題
+  &:last-child {
+    padding-right: 11px;
+  }
+}
+.form-item-enter-block-lt {
+  margin-right: 8px;
+  &:first-child {
+    padding-left: 15px;
+  }
+}
+// /*************************************
+// * 輸入區塊 - 中 - 文字區
+// **************************************/
+.enter-txt {
+  width: 100%;
+  @include text-body-01;
+  border-radius: 6px;
+  background-color: transparent;
+}
+
+input.enter-txt,
+textarea.enter-txt {
+  @include text-body-01;
+}
+
+.is-disabled .enter-txt {
+  // cursor: default;
+  &::-webkit-input-placeholder {
+    color: $neutral-300;
+  }
+  &::placeholder {
+    color: $neutral-300;
+  }
+  &:-ms-input-placeholder {
+    color: $neutral-300;
+  }
+  &::-moz-placeholder {
+    color: $neutral-300;
+  }
+}
+
+.is-disabled {
+  input.enter-txt,
+  textarea.enter-txt {
+    color: $neutral-300;
+    // iphone上顏色需設定這個
+    -webkit-text-fill-color: $neutral-300;
+    -webkit-opacity: 1;
+  }
+}
+
+// placeholder
+input::-webkit-input-placeholder {
+  color: $neutral-400;
+}
+
+input:-moz-placeholder {
+  color: $neutral-400;
+}
+
+input::-moz-placeholder {
+  color: $neutral-400;
+}
+
+input:-ms-input-placeholder {
+  color: $neutral-400;
+}
+
+::placeholder {
+  color: $neutral-400;
+}
+
+// /*************************************
+// * form-helper-msg 提示文字 / form-error-msg 錯誤文字
+// **************************************/
+.form-helper-msg {
+  @include text-body-02;
+  color: $neutral-500;
+  padding-top: 4px;
+}
+.is-disabled {
+  .form-helper-msg {
+    color: $neutral-300;
+  }
+}
+.is-error,
+.is-warning {
+  .form-helper-msg {
+    display: none;
+  }
+}
+
+.form-error-msg {
+  @include text-body-02;
+  color: $red-500;
+  padding-top: 4px;
+}
+
+.form-warning-msg {
+  @include text-body-02;
+  color: $yellow-400;
+  padding-top: 4px;
+}

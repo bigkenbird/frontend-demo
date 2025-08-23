@@ -1,0 +1,107 @@
+// /*************************************
+// *      form radio
+// **************************************/
+.radio-box {
+  // 改善windows 表格標題與radio btn 垂直不對齊問題
+  // margin: 0px 16px 2px 0px;
+  // vertical-align: middle; // 顯示錯誤訊息會顯示在下方會跑版
+  user-select: none;
+  cursor: pointer;
+}
+.radio-box input[type='radio'] {
+  display: none;
+}
+// /*************************************
+// *      radio button
+// **************************************/
+.radio-box {
+  display: inline-flex;
+}
+.radio-widget {
+  position: relative;
+  flex-shrink: 0;
+  margin: 3px 7px 3px 0;
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  border: 1px solid $bg-colors-divider;
+  background-color: $bg-colors-input;
+  &:hover {
+    border-color: $primary-colors-hover;
+    background-color: $bg-colors-white;
+  }
+}
+
+.radio-widget + .radio-text {
+  color: $text-primary;
+}
+
+input[type='radio']:checked + .radio-widget {
+  border-color: $brand-color-yellow;
+  border-width: 6px;
+  background-color: $white;
+  &:hover {
+    background-color: $bg-colors-input;
+  }
+}
+
+input[type='radio']:disabled + .radio-widget {
+  cursor: default;
+  border-color: $text-disabled;
+  background-color: $bg-colors-disabled;
+}
+
+input[type='radio']:checked:disabled + .radio-widget {
+  border-color: $text-disabled;
+  background-color: $bg-colors-input;
+  &::before {
+    background-color: $text-disabled;
+  }
+}
+// .radio-box {
+//   &:hover {
+//     input[type='radio']:disabled + .radio-widget {
+//       border-color: $neutral-400;
+//     }
+//     input[type='radio']:disabled:checked + .radio-widget {
+//       border-color: $neutral-400;
+//     }
+//   }
+// }
+
+// /*************************************
+// *      txt
+// **************************************/
+.radio-box input[type='radio']:disabled + .radio-widget + .radio-text {
+  cursor: default;
+  color: $neutral-400;
+}
+
+// /*************************************
+// * radio-group
+// **************************************/
+.radio-group {
+  .radio-box {
+    padding: 8px 8px 8px 0px;
+  }
+  .radio-box:not(:last-child) {
+    margin-right: 16px;
+  }
+}
+
+// /*************************************
+// * error
+// **************************************/
+
+.radio-group.is-error,
+.radio-box.is-error {
+  .radio-widget {
+    border-color: $red-500;
+  }
+}
+.form-error-msg {
+  @include text-body-02;
+  color: $red-500;
+  padding-top: 2px;
+}

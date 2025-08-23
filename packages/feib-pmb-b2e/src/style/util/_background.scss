@@ -1,0 +1,56 @@
+// /*************************************
+//  background-color
+// **************************************/
+.bg-white {
+  background-color: $bg-colors-white;
+}
+
+.bg-input {
+  background-color: $bg-colors-input;
+}
+
+.bg-divider {
+  background-color: $bg-colors-divider;
+}
+
+.bg-gray-50 {
+  background-color: $gray-50;
+}
+
+.bg-red-50 {
+  background-color: $red-50;
+}
+
+.bg-orange-400 {
+  background-color: $orange-400;
+}
+.bg-orange-50 {
+  background-color: $orange-50;
+}
+
+.bg-green-50 {
+  background-color: $green-50;
+}
+
+.bg-blue-500 {
+  background-color: $blue-500;
+}
+.bg-blue-50 {
+  background-color: $blue-50;
+}
+
+.bg-cover {
+  background-size: cover;
+}
+
+.bg-contain {
+  background-size: contain;
+}
+
+.bg-center {
+  background-position: center;
+}
+
+.bg-no-repeat {
+  background-repeat: no-repeat;
+}

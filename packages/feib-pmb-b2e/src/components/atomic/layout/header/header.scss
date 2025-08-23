@@ -1,0 +1,38 @@
+header {
+  height: 60px;
+  background-image: $brand-color-yellow-gradient;
+}
+.divider {
+  width: 1px;
+  height: 16px;
+  background: $grayscale-03;
+}
+
+.title {
+  @include text-body-01E;
+}
+
+.user-name,
+.user-division {
+  @include text-body-02E;
+}
+
+.img {
+  height: 48px;
+}
+
+.button {
+  @include text-caption;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  vertical-align: middle;
+  border-radius: 50px;
+  border: 1px solid $primary-colors-normal;
+  color: $primary-colors-normal;
+  padding: 3px 11px; // border 緣故 各少 1px
+  span {
+    display: inline-flex;
+  }
+}

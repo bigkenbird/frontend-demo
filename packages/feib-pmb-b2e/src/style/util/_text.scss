@@ -1,0 +1,204 @@
+// /*************************************
+// text-align
+// **************************************/
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+.text-left {
+  text-align: left;
+}
+// .text-justify {
+//   text-align: justify;
+// }
+// .text-start {
+//   text-align: start;
+// }
+// .text-end {
+//   text-align: end;
+// }
+// /*************************************
+// line-height
+// 自訂，非tailwind
+// **************************************/
+.line-h-normal {
+  line-height: normal;
+}
+.line-h-1 {
+  line-height: 1;
+}
+.line-h-18px {
+  line-height: 18px;
+}
+.line-h-20px {
+  line-height: 20px;
+}
+.line-h-22px {
+  line-height: 22px;
+}
+.line-h-30px {
+  line-height: 30px;
+}
+.line-h-48px {
+  line-height: 48px;
+}
+
+// /*************************************
+// 多行省略
+// 自訂，非taildwind
+// **************************************/
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+.line-clamp-4 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+}
+.txt-ellipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+// /*************************************
+// 折行
+// **************************************/
+.break-all {
+  word-break: break-all;
+}
+.break-words {
+  overflow-wrap: break-word;
+}
+.whitespace-pre-line {
+  white-space: pre-line;
+}
+// /*************************************
+// 縮排
+// **************************************/
+// .indent-8 {
+//   text-indent: 2rem;
+// }
+
+// /*************************************
+// text-decoration
+// **************************************/
+// .line-through {
+//   text-decoration: line-through;
+// }
+
+// /*************************************
+// 字級、字重
+// 根據guidelien訂，不使用tailwind
+// TODO
+// **************************************/
+// 單純粗體
+.font-bold {
+  font-weight: 500;
+}
+// 單純細體
+.font-normal {
+  font-weight: 400;
+}
+
+// 24
+.text-heading-01 {
+  @include text-heading-01;
+}
+// 20
+.text-heading-02 {
+  @include text-heading-02;
+}
+
+// 16
+.text-body-01 {
+  @include text-body-01;
+}
+.text-body-01E {
+  @include text-body-01E;
+}
+// 14
+.text-body-02 {
+  @include text-body-02;
+}
+.text-body-02E {
+  @include text-body-02E;
+}
+.text-caption {
+  @include text-caption;
+}
+
+/*************************************
+*       txt color 
+*  依照guideline開發
+**************************************/
+.text-primary {
+  color: $text-primary;
+}
+.text-secondary {
+  color: $text-secondary;
+}
+.text-placeholder {
+  color: $text-placeholder;
+}
+.text-disabled {
+  color: $text-disabled;
+}
+.text-success {
+  color: $bg-colors-success;
+}
+.text-error {
+  color: $text-error;
+}
+.text-highlight {
+  color: $text-highlight;
+}
+.text-highlight-positive {
+  color: $highlight-positive;
+}
+.text-highlight-negative {
+  color: $highlight-negative;
+}
+.text-darken-highlight-brown {
+  color: $darken-highlight-brown;
+}
+.text-primary-blue-normal {
+  color: $primary-colors-normal;
+}
+
+.text-white {
+  color: $white;
+}
+
+.text-link {
+  color: $brand-color-hyperlink;
+}
+
+.text-grayscale-02 {
+  color: $grayscale-02;
+}
+
+.text-grayscale-03 {
+  color: $grayscale-03;
+}
+
+.text-grayscale-04 {
+  color: $grayscale-04;
+}

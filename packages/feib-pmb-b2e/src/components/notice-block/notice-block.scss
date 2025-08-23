@@ -1,0 +1,42 @@
+// /*************************************
+// *
+// **************************************/
+.notice-block {
+  position: relative;
+  padding: 24px 0px 40px;
+}
+.notice-block-toggle {
+  position: absolute;
+  right: 0;
+  bottom: 36px;
+  background: linear-gradient(
+    90deg,
+    rgba(250, 250, 247, 0) 2.5%,
+    rgba(250, 250, 247, 0.81) 14.59%,
+    #fafaf7 34.42%
+  );
+  padding: 4px 0 4px 24px;
+  &::after {
+    content: '';
+    width: calc(100% + 24px);
+  }
+
+  .button-text {
+    line-height: 1.5rem; // 這裡行距設計特別調整
+  }
+}
+
+.card {
+  .notice-block-toggle {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 2.5%,
+      rgba(255, 255, 255, 0.81) 14.59%,
+      #ffffff 34.42%
+    );
+  }
+}
+
+.more-buttom {
+  color: #4c63e0;
+}

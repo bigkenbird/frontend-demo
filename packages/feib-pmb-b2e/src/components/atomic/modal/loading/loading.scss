@@ -1,0 +1,59 @@
+// /*************************************
+// * 所有需要有遮罩的不同元件(dialog/drawer/drawer/actionsheet...)， 開關方式及backdrop共用
+// **************************************/
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100vh; //真機上如果用100%，高度會不包含footer
+  height: 100svh;
+  overflow: hidden;
+}
+
+.loading-fade-in {
+  animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/*************************************
+*       背景灰底
+**************************************/
+.modal-backdrop {
+  background-color: rgba(50, 50, 50, 0.4);
+  width: 100%;
+  height: 100%;
+  // 製作動畫用
+  // opacity: 0;
+  &.modal-backdrop-transparent {
+    background-color: rgba(50, 50, 50, 0);
+  }
+}
+
+.loading {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  svg {
+    animation: spin 2s linear infinite;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

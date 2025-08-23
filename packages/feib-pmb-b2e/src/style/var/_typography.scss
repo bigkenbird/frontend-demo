@@ -1,0 +1,43 @@
+// /*************************************
+//  heading
+// **************************************/
+// 24
+@mixin text-heading-01 {
+  font-weight: 400;
+  font-size: 1.5rem; /* 24px */
+  line-height: 2.25rem; /* 36px */
+}
+// 20
+@mixin text-heading-02 {
+  font-weight: 500;
+  font-size: 1.25rem; /* 20px */
+  line-height: 1.875rem; /* 28px */
+}
+
+// /*************************************
+//  body text
+// **************************************/
+
+@mixin text-body-01 {
+  font-weight: 400;
+  font-size: 1rem; /* 16px */
+  line-height: 1.5rem; /* 24px */
+}
+@mixin text-body-01E {
+  font-weight: 500;
+  font-size: 1rem; /* 16px */
+  line-height: 1.5rem; /* 24px */
+}
+@mixin text-body-02 {
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.3125rem; /* 21px */
+}
+@mixin text-body-02E {
+  font-weight: 500;
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.5rem; /* 24px */
+}
+@mixin text-caption {
+  font-size: 0.75rem; /* 12px */
+  line-height: 1.25rem; /* 20px */
+}

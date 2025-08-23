@@ -1,0 +1,102 @@
+/*************************************
+*		height 
+// 4的倍數,參考tailwind
+// 非4的倍數、百分比、其它特殊的：自訂
+**************************************/
+// 4的倍數
+@mixin setHeight($i, $space) {
+  .h-#{$i} {
+    height: #{$space} !important;
+  }
+}
+// @include setHeight(0, '0px');
+@include setHeight(1, '4px');
+// @include setHeight(2, '8px');
+// @include setHeight(3, '12px');
+@include setHeight(4, '16px');
+@include setHeight(5, '20px');
+@include setHeight(6, '24px');
+@include setHeight(8, '32px');
+@include setHeight(9, '36px');
+@include setHeight(10, '40px');
+@include setHeight(12, '48px');
+@include setHeight(14, '56px');
+@include setHeight(16, '64px');
+@include setHeight(20, '80px');
+@include setHeight(21, '84px');
+@include setHeight(22, '88px');
+@include setHeight(40, '160px');
+@include setHeight(48, '192px');
+@include setHeight(71, '284px');
+@include setHeight(75, '300px');
+
+//  非4的倍數、百分比、其它特殊的：自訂
+.h-1px {
+  height: 1px;
+}
+.h-14px {
+  height: 14px;
+}
+
+.h-65px {
+  height: 65px;
+}
+
+.h-108px {
+  height: 108px;
+}
+
+.h-200px{
+  height: 200px;
+}
+
+// .h-50per{
+//   height: 50%;
+// }
+
+/*************************************
+*		height - 其它，參考tailwind
+**************************************/
+.h-full {
+  height: 100%;
+}
+.h-screen {
+  height: 100vw;
+}
+.h-auto {
+  height: auto;
+}
+
+// .h-min {
+//   height: min-content;
+// }
+// .h-max {
+//   height: max-content;
+// }
+// .h-fit {
+//   height: fit-content;
+// }
+
+/*************************************
+*		min height
+// 若tailwind沒有，則自行增加
+**************************************/
+// .min-h-2 {
+//   min-height: 8px;
+// }
+// .min-h-px {
+//   min-height: 1px;
+// }
+// .min-h-14px {
+//   min-height: 14px;
+// }
+
+.min-h-400px {
+  min-height: 400px;
+}
+
+/*************************************
+*		max height
+// 若tailwind沒有，則自行增加
+**************************************/
+

@@ -1,0 +1,16 @@
+{
+  "recommendations": [
+    //生產力工具
+    "moshfeu.compare-folders",
+    "shd101wyy.markdown-preview-enhanced",
+    "hediet.vscode-drawio",
+    "SonarSource.sonarlint-vscode",
+    "42Crunch.vscode-openapi",
+    //VUE工具
+    "Vue.volar",
+    "Vue.vscode-typescript-vue-plugin",
+    //一致性工具
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint"
+  ]
+}

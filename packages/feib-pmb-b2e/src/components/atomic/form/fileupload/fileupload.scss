@@ -1,0 +1,23 @@
+.filepond--root {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+}
+.filepond--credits {
+  display: none;
+}
+.filepond--drop-label {
+  height: 200px;
+  span {
+    height: 32px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid black;
+  }
+}
+.filepond--panel-root {
+  background-color: $white;
+}
+.filepond--panel {
+  right: 1px;
+}

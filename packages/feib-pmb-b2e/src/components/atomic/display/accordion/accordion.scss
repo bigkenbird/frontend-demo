@@ -1,0 +1,25 @@
+// /*************************************
+// *
+// **************************************/
+
+/* Toggleable Content */
+.v-enter-from,
+.v-leave-to {
+  max-height: 0;
+}
+
+.v-enter-to,
+.v-leave-from {
+  max-height: 800px;
+}
+
+.v-leave-active {
+  overflow: hidden;
+  transition: max-height 0.2s cubic-bezier(0, 1, 0, 1);
+}
+// cubic-bezier(0, 1, 0, 1)
+
+.v-enter-active {
+  overflow: hidden;
+  transition: max-height 1s ease-in-out;
+}

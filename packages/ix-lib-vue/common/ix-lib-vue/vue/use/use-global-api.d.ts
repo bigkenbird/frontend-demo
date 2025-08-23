@@ -1,0 +1,12 @@
+export declare function subscribeGlobalResumeEvent(event: (e: Event) => void): () => void;
+export declare function emitGlobalResumeEvent(e: Event): void;
+export declare function subscribeGlobalPauseEvent(event: (e: Event) => void): () => void;
+export declare function emitGlobalPauseEvent(e: Event): void;
+export declare function subscribeGlobalOrientationChangeEvent(event: (e: Event) => void): () => void;
+export declare function emitGlobalOrientationChangeEvent(e: Event): void;
+export declare function subscribeGlobalResizeEvent(event: (e: Event) => void): () => void;
+export declare function emitGlobalResizeEvent(e: Event): void;
+export declare function subscribeGlobalErrorEvent(event: (err: Error) => void): () => void;
+export declare function emitGlobalErrorEvent(err: Error): void;
+export declare function subscribeGlobalHistoryBack(event: () => void): () => void;
+export declare function emitGlobalHistoryBack(): void;

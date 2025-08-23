@@ -1,0 +1,232 @@
+.dialog-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  background-color: rgba(50, 50, 50, 0.4);
+}
+
+.dialog-fade-in {
+  animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+// /*************************************
+// 彈跳視窗，中間白色card
+// **************************************/
+.dialog-center-area {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  max-width: 960px;
+  max-height: 90vh;
+  width: calc(100% - 64px);
+  @media screen and (max-width: 360px) {
+    width: calc(100% - 32px);
+  }
+  display: flex;
+  flex-direction: column;
+  &.extra-large {
+    max-width: 1400px;
+  }
+  &.large {
+    max-width: 960px;
+  }
+  &.middle {
+    max-width: 832px;
+  }
+  &.small {
+    max-width: 420px;
+  }
+}
+
+.dialog {
+  background: $white;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  border: 1px solid $neutral-200;
+  overflow: hidden;
+
+  // 純圖示，透明背景
+  &.bg-transparent {
+    background: transparent;
+    border-color: transparent;
+    padding: 0;
+  }
+
+  // 顯示捲軸
+  &.scroll {
+    overflow: scroll;
+  }
+
+  &.scroll-auto {
+    overflow: auto;
+  }
+}
+.dialog-overflow-visible {
+  overflow: visible;
+}
+// /*************************************
+// vue transition 動畫(css需放在.dialog後方，以免被覆蓋)
+// **************************************/
+.animate-dialog-enter-active {
+  transition: all 0.3s ease-in-out;
+}
+.animate-dialog-leave-active {
+  transition: all 0.3s ease-in-out;
+}
+.animate-dialog-enter-from {
+  opacity: 0;
+  transform: translate(-50%, -50%);
+}
+.animate-dialog-leave-to {
+  opacity: 0;
+}
+
+/*************************************
+*       dialog close btn
+**************************************/
+
+.dialog-close-btn {
+  cursor: pointer;
+}
+/*************************************
+*       dialog header
+**************************************/
+.dialog-icon {
+  margin: 0 auto 8px;
+  width: 84px;
+  height: 84px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  &.dialog-icon-success {
+    background-image: url("./img/dialog-icon-success.svg");
+  }
+  &.dialog-icon-alert {
+    background-image: url("./img/dialog-icon-alert.svg");
+  }
+  &.dialog-icon-error {
+    background-image: url("./img/dialog-icon-error.svg");
+  }
+  &.dialog-icon-notice {
+    background-image: url("./img/dialog-icon-notice.svg");
+  }
+}
+.dialog-image:not(:empty) {
+  margin-bottom: 8px;
+}
+
+/*************************************
+*       dialog content
+**************************************/
+
+.dialog-body {
+  // overflow-x: hidden;
+  // overflow-y: auto;
+  color: $neutral-800;
+  background-color: $bg-colors-white;
+  flex-shrink: 1;
+  // scrollbar-width: none;
+  // -ms-overflow-style: none;
+  // overflow: -moz-scrollbars-none;
+  // &::-webkit-scrollbar {
+  //   display: none !important;
+  // }
+
+  &:empty {
+    display: none;
+  }
+}
+/*************************************
+*       dialog footer
+**************************************/
+.dialog-footer {
+  flex-shrink: 0;
+  padding-top: 10px;
+  padding-bottom: 16px;
+}
+// /*************************************
+// *     「不再顯示區」
+// **************************************/
+.dialog-not-show-again {
+  color: $white;
+  text-align: center;
+  margin-top: 16px;
+  flex-shrink: 0;
+}
+// /*************************************
+// *     「不再顯示區」 的checkbox
+// **************************************/
+.checkbox-box {
+  user-select: none;
+}
+
+.checkbox-box input[type="checkbox"] {
+  display: none;
+}
+// /*************************************
+// *      一般checkbox 的button
+// **************************************/
+.checkbox-box {
+  display: inline-flex;
+  .checkbox-widget {
+    flex-shrink: 0;
+    margin: 4px 8px 4px 0;
+    display: block;
+    width: 16px;
+    height: 16px;
+    left: 0;
+    border-radius: 4px;
+    border: 1px solid $white;
+    background-color: transparent;
+    position: relative;
+  }
+
+  input[type="checkbox"]:checked + .checkbox-widget {
+    background-color: $main-color;
+    border: 1px solid $main-color;
+    &::before {
+      content: "";
+      width: 5px;
+      height: 1.7px;
+      background-color: $bg-colors-white;
+      top: 7px;
+      left: 2px;
+      transform: rotate(45deg);
+      position: absolute;
+      z-index: 1;
+    }
+    &::after {
+      content: "";
+      width: 1.7px;
+      height: 9px;
+      background-color: $bg-colors-white;
+      top: 2px;
+      left: 8px;
+      transform: rotate(45deg);
+      position: absolute;
+      z-index: 1;
+    }
+  }
+}
+// /*************************************
+// *     一般checkbox的 txt
+// **************************************/
+.checkbox-box .checkbox-text {
+  @include text-body-01;
+}

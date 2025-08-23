@@ -1,0 +1,18 @@
+@mixin setSpace($i, $space) {
+  // margin
+  .space-x-#{$i} > * + * {
+    margin-left: #{$space} !important;
+  }
+  .space-y-#{$i} > * + * {
+    margin-top: #{$space};
+  }
+}
+@include setSpace(0, '0px');
+// @include setSpace('px', '1px');
+// @include setSpace(2px, '2px');
+@include setSpace(1, '4px');
+@include setSpace(2, '8px');
+@include setSpace(3, '12px');
+@include setSpace(4, '16px');
+@include setSpace(5, '20px');
+@include setSpace(6, '24px');

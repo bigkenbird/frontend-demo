@@ -1,0 +1,30 @@
+{
+  "name": "root",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "clean": "yarn clean:packages && yarn clean:cache && yarn clean:self",
+    "clean:packages": "lerna clean --yes",
+    "clean:cache": "lerna exec -- rm -rf dist lib .cache false",
+    "clean:dist": "lerna exec -- rm -rf dist",
+    "clean:self": "rm -rf node_modules",
+    "build": "dotenv -c prod lerna run build -- --stream",
+    "build-sit": "dotenv -c sit lerna run build -- --stream",
+    "build-uat": "dotenv -c uat lerna run build -- --stream",
+    "start": "lerna run dev --scope feib-pmb-b2e",
+    "deploy": "lerna run deploy --scope feib-pmb-b2e",
+    "bd": "yarn build && yarn deploy"
+  },
+  "devDependencies": {
+    "dotenv": "16.4.5",
+    "dotenv-cli": "7.4.2",
+    "fs-extra": "11.2.0",
+    "lerna": "6.6.2",
+    "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "vue3-easy-data-table": "^1.5.47"
+  }
+}

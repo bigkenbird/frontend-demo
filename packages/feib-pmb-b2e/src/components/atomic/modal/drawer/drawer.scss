@@ -1,0 +1,93 @@
+// /*************************************
+// drawer，白底抽屜
+// **************************************/
+.drawer-dialog {
+  width: 100%;
+  max-width: 628px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  bottom: 0;
+  background-color: $bg-colors-white;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px 16px 0px 0px;
+  max-height: calc(100vh - 48px - env(safe-area-inset-top));
+  // max-height: calc(100svh - 48px - env(safe-area-inset-top));
+  border: 1px solid $neutral-200;
+  padding-bottom: calc(
+    8px + env(safe-area-inset-bottom)
+  ); //設計稿沒有8px，但防止無瀏海手機貼底
+}
+// /*************************************
+// vue transition 動畫(css需放在.drawer-dialog後方，以免被覆蓋)
+// **************************************/
+.animate-drawer-enter-active,
+.animate-drawer-leave-active {
+  transition: transform 0.3s ease-in-out;
+}
+
+.animate-drawer-enter-from,
+.animate-drawer-leave-to {
+  transform: translate(-50%, 100%);
+}
+.animate-drawer-enter-to,
+.animate-drawer-leave-from {
+  transform: translate(-50%, 0%);
+}
+
+/*************************************
+*       drawer header
+**************************************/
+.drawer-header {
+  border-radius: 16px 16px 0px 0px;
+  padding: 16px;
+  position: relative;
+  min-height: 60px;
+  &.drawer-header-bottom-line {
+    border-bottom: 1px solid $neutral-200;
+  }
+}
+.drawer-title-block {
+  padding: 0px 36px;
+}
+.drawer-header .drawer-title {
+  // text-overflow: ellipsis;
+  // overflow: hidden;
+  // white-space: nowrap;
+  text-align: center;
+}
+.drawer-header .drawer-subtitle {
+  color: $neutral-500;
+  @include text-body-02;
+  text-align: center;
+}
+
+.drawer-close-btn {
+  right: 16px;
+  position: absolute;
+  top: 20px;
+}
+.drawer-back-btn {
+  left: 16px;
+  position: absolute;
+  top: 20px;
+}
+
+// /*************************************
+// body
+// **************************************/
+.drawer-body {
+  flex-shrink: 1;
+  flex-grow: 0;
+  overflow-y: auto;
+  padding: 0px 16px 0px;
+}
+
+// /*************************************
+// footer(fixed在底部）
+// **************************************/
+.drawer-footer {
+  flex-shrink: 0;
+  padding: 24px 16px 0px;
+}

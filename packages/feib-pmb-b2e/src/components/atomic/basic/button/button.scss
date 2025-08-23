@@ -1,0 +1,159 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  vertical-align: middle; // 有icon 的按鈕和沒icon的放在一起才不會跑版
+  // .icon {
+  //   font-size: 0px;
+  // }
+}
+
+// /*************************************
+// * 按鈕類型：primary secondary
+// **************************************/
+.button-primary,
+.button-secondary,
+.button-negative,
+.button-outline {
+  border-radius: 6px;
+  > * + * {
+    margin-left: 8px;
+  }
+  &.button-pill {
+    border-radius: 50%;
+  }
+  &.button-l {
+    height: 40px;
+  }
+}
+
+.button-primary {
+  // 按鈕大小分3種: S M L
+  &.button-s {
+    padding: 4px 12px;
+  }
+  &.button-m {
+    padding: 6px 16px;
+  }
+  &.button-l {
+    padding: 9px 21px;
+  }
+}
+
+.button-secondary,
+.button-negative,
+.button-outline {
+  // 按鈕大小分3種: S M L
+  &.button-s {
+    padding: 3px 11px; // 因有 border,padding-1
+  }
+  &.button-m {
+    padding: 5px 15px; //因有 border,padding-1
+  }
+  &.button-l {
+    padding: 8px 20px; //因有 border,padding-1
+  }
+}
+
+.button-primary {
+  background: $brand-color-yellow;
+  &:enabled:active {
+    background: none;
+    background-color: $background-color-yellow-03;
+    border-color: $bg-colors-hover;
+  }
+
+  &.is-disabled {
+    color: $grayscale-03;
+    background: $fill-disabled;
+    border-color: $fill-disabled;
+  }
+}
+.button-secondary {
+  background-color: $grayscale-05;
+  &:enabled:active {
+    background-color: $grayscale-04;
+  }
+  &.is-disabled {
+    color: $grayscale-03;
+    background: $fill-disabled;
+    border-color: $fill-disabled;
+  }
+}
+.button-negative {
+  color: $highlight-negative;
+  background-color: $background-color-orange;
+  border: 1px solid $highlight-negative;
+  &:enabled:active {
+    background: linear-gradient(0deg, rgba(217, 75, 46, 0.20) 0%, rgba(217, 75, 46, 0.20) 100%), $background-color-orange;
+  }
+  &.is-disabled {
+    color: $grayscale-03;
+    background: $grayscale-05;
+    border: none;
+  }
+}
+.button-outline {
+  border-width: 1px;
+  border-style: solid;
+  border-color: $grayscale-03;
+  min-width: 56px;
+  &:enabled:active {
+    color: $primary-colors-normal;
+    border-color: $grayscale-placeholder;
+  }
+  &.is-disabled {
+    color: $grayscale-03;
+    border-color: $grayscale-04;
+  }
+}
+// /*************************************
+// * 按鈕類型：icon
+// **************************************/
+.button-icon {
+  &:not(.button-icon-without-color) {
+    color: $main-color;
+    &:enabled:active {
+      color: $second-color;
+    }
+  }
+  &.is-disabled {
+    color: $neutral-300;
+  }
+}
+// /*************************************
+// * 按鈕類型：text
+// **************************************/
+.button-text {
+  color: $main-color;
+  text-align: left; // 英文版字體過長折行時靠左對齊
+  > * + * {
+    margin-left: 4px;
+  }
+  &:enabled:active {
+    color: $second-color;
+  }
+  &.is-disabled {
+    color: $neutral-300;
+  }
+}
+// /*************************************
+// * 按鈕組合 button-block
+// **************************************/
+.button-block {
+  &.is-fixed {
+    padding: 24px 16px 8px;
+  }
+  &.fixed-with-footer {
+    padding: 12px 16px 24px;
+  }
+  .button-text {
+    flex-grow: 0;
+  }
+}
+.page-fixed-bottom-block {
+  .button-block {
+    padding: 24px 16px 8px;
+  }
+}

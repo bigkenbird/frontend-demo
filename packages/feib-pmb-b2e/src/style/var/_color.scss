@@ -1,0 +1,104 @@
+// /*************************************
+//  color system
+// **************************************/
+// TODO: 目前參考 figma 上的名稱，拿到 guideline 確認一下
+$white: #ffffff;
+
+// PRIMARY colors
+$brand-color-red: red;
+$brand-color-yellow: #e45649; // rgb(254, 199, 10)
+$brand-color-hyperlink: #4c63e0;
+$brand-color-hyperlink-darkmode: #f5b7b1; // rgb(254, 199, 10)
+$brand-color-yellow-gradient: linear-gradient(to right, rgba($brand-color-yellow, 1), rgba($brand-color-yellow, 0));
+
+// grayscale
+$grayscale-01: #323b44;
+$grayscale-02: rgba($grayscale-01, .85);
+$grayscale-03: rgba($grayscale-01, .5);
+$grayscale-04: #d7d7d7;
+$grayscale-05: #ebe9e9;
+$grayscale-06: #ebedfa;
+$grayscale-placeholder: rgba($grayscale-01, .33);
+
+$background-color-yellow: #fff8e0;
+$background-color-yellow-02: #fc9490;
+$background-color-yellow-03: #fc7b72;
+$background-color-green: #daf2f2;
+$background-color-blue: #e1effa;
+// $background-color-purple:
+$background-color-orange: #ffeee5;
+
+$darken-highlight-brown: #a65900;
+$darken-highlight-green: #007a7a;
+$darken-highlight-blue: #0092fa;
+
+// $highlight-divider: 
+$highlight-positive: #319900;
+$highlight-negative: #d94b2e;
+
+$fill-disabled: #d7d8da;
+
+
+$primary-colors-normal: #323b44; // rgb(254, 199, 10)
+$primary-colors-hover: #ee7565; // 
+$primary-colors-pressed: #005bac; // $blue-600
+$primary-colors-select: #005bac; // $blue-600
+
+// text
+$text-primary: #323b44; // Grayscale/01 Primary rgb(50, 59, 68)
+$text-secondary: #595959; // Grayscale/02 Secondary
+$text-placeholder: #9e9e9e;
+$text-disabled: #bcbcbc; // neutral-300
+$text-error: #df0505; //  $red-500
+$text-highlight: #f26f28; //  orange-300
+
+// background colors
+$bg-colors-white: #ffffff;
+$bg-colors-input: #f6f6f6;
+$bg-colors-lightblue: #f0f4fa;
+$bg-colors-divider: #c9d0da;
+$bg-colors-select: #f9efda;
+$bg-colors-hover: #f0f4fa;
+$bg-colors-headergrey: #7b828f;
+$bg-colors-mask: rgba(0, 0, 0, 0.5);
+$bg-colors-disabled: #e9e9e9;
+$bg-colors-success: #15cf97;
+
+// highlight
+$highlight-gold: #c3954f;
+
+// legacy color from PMB-APP
+$gray-gray-500: #64748B;
+$gray-500: #5b7282;
+$gray-50: #f2f5f7;
+
+$neutral-800: #323232;
+$neutral-500: #737373;
+$neutral-400: #9e9e9e;
+$neutral-300: #bcbcbc;
+$neutral-200: #e9e9e9;
+$neutral-100: #f0f0f0;
+$neutral-50: #fafafa;
+
+$red-600: #be1303;
+$red-500: #df0505;
+$red-50: #fcf3f2;
+
+$orange-400: #eb6100;
+$orange-300: #f26f28;
+$orange-50: #fcf2eb;
+
+$yellow-400: #e93600;
+
+$green-500: #077d55;
+$green-300: #43c478;
+$green-100: #c7ebd1;
+$green-50: #ebf7ed;
+
+$blue-700: #114a9c;
+$blue-600: #005bac;
+$blue-500: #076ed7;
+$blue-400: #1e8bfa;
+$blue-300: #67b2f6;
+$blue-100: #d4e4fa;
+$blue-50: #f0f4fa;

@@ -1,0 +1,37 @@
+.card {
+  background-color: $bg-colors-white;
+  border-radius: 8px;
+  box-shadow: 0px 2px 40px 0px rgba(52, 46, 45, 0.06);
+  &.large {
+    border-radius: 24px;
+  }
+  &.page-main-container {
+    margin-top: 16px;
+    margin-bottom: 40px;
+    padding-top: 12px;
+    .title {
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      h2 {
+        @include text-heading-02;
+      }
+    }
+    .summary {
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .total {
+        @include text-body-02;
+        color: $text-secondary;
+      }
+    }
+    .divider {
+      margin: 16px auto;
+      height: 1px;
+      background-color: $bg-colors-divider;
+    }
+  }
+}

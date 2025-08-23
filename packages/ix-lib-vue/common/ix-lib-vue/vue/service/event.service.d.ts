@@ -1,0 +1,30 @@
+import { IAction, ISimpleSubject, ISimpleSubscription } from '@twix/ix-lib-base';
+import { IPage } from '../use/use-page';
+import { BaseService } from './base-service';
+export declare class EventService extends BaseService {
+    protected serviceName: string;
+    subscribeResizeEvent(callback: (e: Event) => void, delay?: number): ISimpleSubscription;
+    subscribeOrientationChangeEvent(callback: (e: Event) => void, delay?: number): ISimpleSubscription;
+    protected bootstrapGuardReadySubject: ISimpleSubject<[string, Record<string, string>]>;
+    subscribeBootstrapGuardReadySubject(callback: (bootstarpData: [string, Record<string, string>]) => void): ISimpleSubscription;
+    emitBootstrapGuardReadySubject(bootstarpData: [string, Record<string, string>]): void;
+    protected pageDidChangeSubject: ISimpleSubject<IPage>;
+    subscribePageDidChangeSubject(callback: (page: IPage) => void): ISimpleSubscription;
+    emitPageDidChangeSubject(page: IPage): void;
+    protected pageWillChangeSubject: ISimpleSubject<void>;
+    subscribePageWillChangeSubject(callback: () => void): ISimpleSubscription;
+    emitPageWillChangeSubject(): void;
+    protected pageDestroyedSubject: ISimpleSubject<string[]>;
+    subscribePageDestroyedSubject(callback: (destroyedIds: string[]) => void): ISimpleSubscription;
+    emitPageDestroyedSubject(destroyedIds: string[]): void;
+    protected widgetInitSubject: ISimpleSubject<string[]>;
+    subscribeWidgetInitSubject(callback: (data: string[]) => void): ISimpleSubscription;
+    emitWidgetInitSubject(data: string[]): void;
+    protected bindClickClickedSubject: ISimpleSubject<MouseEvent>;
+    subscribeBindClickClickedSubject(callback: (e: MouseEvent) => void): ISimpleSubscription;
+    emitBindClickClickedSubject(e: MouseEvent): void;
+    protected windowCatchClickEventSubject: ISimpleSubject<MouseEvent>;
+    subscribeWindowCatchClickEventSubject(callback: (e: MouseEvent) => void): ISimpleSubscription;
+    emitWindowCatchClickEventSubject(e: MouseEvent): void;
+    subscribeNativeBackButtonClickEventSubject(callback: (action: IAction) => void, sendLog?: (e: MouseEvent) => void): ISimpleSubscription;
+}

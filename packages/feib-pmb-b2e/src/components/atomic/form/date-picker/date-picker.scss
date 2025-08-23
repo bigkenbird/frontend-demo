@@ -1,0 +1,44 @@
+:deep(.dp__input) {
+  border-color: $bg-colors-divider;
+  border-radius: 6px;
+  min-height: 40px;
+}
+
+:deep(.dp__input_focus) {
+  border-color: $brand-color-yellow;
+  background-color: $white;
+}
+
+:deep(.dp__action_button) {
+  height: auto;
+  min-width: 48px;
+}
+:deep(.dp__month_year_wrap) {
+  justify-content: space-between;
+}
+:deep(.dp__month_year_select) {
+  border: 1px solid $grayscale-05;
+  border-radius: 8px;
+  width: 48%;
+}
+
+:deep(.dp__today) {
+  border: none;
+  color: $darken-highlight-brown;
+}
+
+:deep(.dp__selection_preview) {
+  color: $darken-highlight-brown;
+  font-weight: 500;
+}
+
+:deep(.dp__active_date) {
+  background-color: $brand-color-yellow;
+  border-radius: 100%;
+  color: $grayscale-01;
+}
+
+:deep(.dp__action_select) {
+  background-color: $brand-color-yellow;
+  color: $grayscale-01;
+}

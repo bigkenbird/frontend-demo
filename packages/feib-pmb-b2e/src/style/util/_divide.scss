@@ -1,0 +1,46 @@
+// /*************************************
+//  divide
+// **************************************/
+
+// divide width
+// divide-x-0 > * + * {
+//   border-right-width: 0px;
+//   border-left-width: 0px;
+// }
+
+.divide-x > * + * {
+  border-right-width: 0px;
+  border-left-width: 1px;
+}
+
+// divide-y-0 > * + * {
+//   border-top-width: 0px;
+//   border-bottom-width: 0px;
+// }
+
+.divide-y > * + * {
+  border-top-width: 1px;
+  border-bottom-width: 0px;
+}
+
+// /*************************************
+// divide color，依照guideline 建，不使用tailwind
+// **************************************/
+// divide-black > * + * {
+//   border-color: $neutral-800;
+// }
+
+.divide-neutral-200 > * + * {
+  border-color: $neutral-200;
+}
+
+// /*************************************
+// divide style，可以參考 tailwind
+// **************************************/
+.divide-solid > * + * {
+  border-style: solid;
+}
+
+// divide-dashed > * + * {
+//   border-style: dashed;
+// }
