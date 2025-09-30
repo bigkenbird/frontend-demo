@@ -1,0 +1,43 @@
+.data-table-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  margin-bottom: 15px;
+  text-align: right;
+}
+
+.search-input input {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 250px;
+}
+
+.button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+/* 自訂表格樣式 */
+.customize-table {
+  --easy-table-header-background-color: #f1f5f9;
+  --easy-table-header-font-color: #333;
+  --easy-table-row-hover-background-color: #f6f8fa;
+  --easy-table-footer-background-color: #f1f5f9;
+}
+
+
