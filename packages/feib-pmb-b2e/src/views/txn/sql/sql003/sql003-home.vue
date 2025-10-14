@@ -26,7 +26,17 @@
           >
             <template v-if="header.value !== 'operation'">
               <template v-if="item.editable">
-                <input v-model="item[header.value]" class="editable-input" />
+                <input
+                  :value="globalItemMap.get(item.CODE)?.[header.value]"
+                  @input="
+                    updateMapValue(
+                      item.CODE,
+                      header.value,
+                      ($event.target as HTMLInputElement).value
+                    )
+                  "
+                  class="editable-input"
+                />
               </template>
               <template v-else>
                 {{ item[header.value] }}
@@ -36,7 +46,7 @@
               <div class="operation-wrapper">
                 <template v-if="item.editable">
                   <button @click="saveItem(item)">保存</button>
-                  <button @click="cancelEdit()">取消</button>
+                  <button @click="cancelEdit(item)">取消</button>
                 </template>
                 <template v-else>
                   <button @click="modifyItem(item)">修改</button>
@@ -52,20 +62,18 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, isRef, reactive } from "vue";
 import { useAppPage } from "@twix/feib-lib-vue";
 import { useAppService } from "@twix/ix-lib-vue";
 // @ts-ignore
 import EasyDataTable from "vue3-easy-data-table";
 import "vue3-easy-data-table/dist/style.css";
-import { it } from "date-fns/locale";
 
 const table = ref("");
-
-// 定義表格資料
-let items = ref([]);
-
 let headers = ref([]);
+const items = ref([]);
+
+const globalItemMap = reactive(new Map());
 
 const page = useAppPage(
   {
@@ -111,30 +119,83 @@ async function executeSQL() {
   items.value.push(...statusAndData[1].values);
 }
 
+async function saveReviewData(saveItem) {
+  let itemchange = globalItemMap.get(saveItem.CODE);
+  let statusAndData = await useAppService().sendAndReceivePromiseAsync(
+    "http://localhost:8080/sql/table/review/save",
+    {
+      table: table.value,
+      code: itemchange.CODE,
+      modifiedData: JSON.stringify(itemchange),
+      reviewer: "ken",
+    }
+  );
+
+  const index = items.value.findIndex((i) => i.CODE === saveItem.CODE);
+  if (index !== -1) {
+    items.value[index].editable = false;
+  }
+
+  if (statusAndData[1].result == "success") {
+    alert("保存成功");
+  }
+}
+
+async function deleteReviewData(saveItem) {
+  let modifiedDataJson = JSON.parse(JSON.stringify(saveItem));
+  modifiedDataJson.reviewStatus = 2;
+
+  let statusAndData = await useAppService().sendAndReceivePromiseAsync(
+    "http://localhost:8080/sql/table/review/save",
+    {
+      table: table.value,
+      code: saveItem.CODE,
+      modifiedData: JSON.stringify(modifiedDataJson),
+      reviewer: "ken",
+    }
+  );
+  if (statusAndData[1].result == "success") {
+    alert("刪除成功");
+  }
+}
+
 const modifyItem = (item) => {
-  console.log("修改項目:", item);
-  console.log("item code:", item.CODE);
   const index = items.value.findIndex((i) => i.CODE === item.CODE);
-  console.log("index:", index);
 
   if (index !== -1) {
-    const updatedItem = { ...item, editable: true };
-    console.log("updatedItem:", updatedItem);
-    items.value[index] = updatedItem;
-    console.log("items.value (更新後):", items.value);
+    items.value[index].editable = true;
   }
+  globalItemMap.set(item.CODE, JSON.parse(JSON.stringify(item)));
 };
 
 const deleteItem = (item) => {
-  console.log("刪除項目:", item);
+  deleteReviewData(item);
 };
 
 const saveItem = (item) => {
-  console.log("儲存項目:", item);
+  saveReviewData(item);
 };
 
-const cancelEdit = () => {
-  console.log("取消編輯");
+const cancelEdit = (item) => {
+  const index = items.value.findIndex((i) => i.CODE === item.CODE);
+
+  if (index !== -1) {
+    items.value[index].editable = false;
+  }
+  globalItemMap.set(item.CODE, JSON.parse(JSON.stringify(item)));
+  alert("取消編輯");
+};
+
+const updateMapValue = (itemId, key, value) => {
+  const targetItem = globalItemMap.get(itemId);
+
+  if (targetItem) {
+    targetItem[key] = value;
+
+    console.log(`已更新 Item ${itemId} 的 ${key} 欄位`);
+  } else {
+    console.error(`Map 中找不到 ID 為 ${itemId} 的 item.`);
+  }
 };
 </script>
 

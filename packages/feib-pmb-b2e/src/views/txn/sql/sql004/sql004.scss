@@ -1,0 +1,71 @@
+/* 在您的 sql003.scss 或其他地方添加 */
+
+.comparison-field {
+  display: flex;
+  flex-direction: column; /* 讓原始值和新值上下堆疊 */
+  padding: 2px 0;
+  font-size: 0.9em;
+
+  .value-label {
+    font-weight: bold;
+    color: #6c757d; /* 灰色標籤 */
+    margin-right: 5px;
+  }
+
+  .original-value,
+  .new-value {
+    padding: 2px 0;
+  }
+
+  /* 原始值的差異突顯 */
+  .diff-highlight {
+    color: #007bff; /* 藍色文字，表示原始狀態 */
+    font-style: italic;
+  }
+
+  /* 新值的輸入框 */
+  .editable-input {
+    border: 1px solid #ced4da;
+    padding: 2px 4px;
+    border-radius: 3px;
+    width: 100%; // 確保在表格單元格內不超出
+    box-sizing: border-box;
+  }
+
+  /* 差異中的新值輸入框樣式 */
+  .editable-input.diff-input {
+    border: 2px solid #dc3545; /* 紅色邊框 */
+    background-color: #f8d7da; /* 淺紅色背景 */
+    font-weight: bold;
+  }
+  .comparison-field {
+    /* ... 保持之前的 flex-direction: column; ... */
+    display: flex;
+    flex-direction: column;
+    padding: 2px 0;
+    font-size: 0.9em;
+  }
+
+  /* 原始值標記：舊值用灰色/藍色 */
+  .diff-highlight-old {
+    color: #6c757d; /* 灰色 */
+    text-decoration: line-through; /* 可選：劃掉舊值 */
+  }
+
+  /* 新值標記：新值用綠色/紅色 */
+  .diff-input-new,
+  .diff-highlight-new {
+    font-weight: bold;
+    color: #28a745; /* 綠色，表示新的值 */
+    border: 1px solid #28a745; /* 輸入框的綠色邊框 */
+    background-color: #e6ffe6; /* 淺綠色背景 */
+    padding: 1px 3px;
+    border-radius: 3px;
+  }
+
+  /* 如果是編輯狀態下的 input */
+  .editable-input.diff-input-new {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}

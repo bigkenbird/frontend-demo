@@ -32,6 +32,20 @@
         前往 SQL DataTable執行頁面
       </button>
     </router-link>
+    <router-link to="/sql/sql004/view">
+      <button
+        style="
+          margin-top: 20px;
+          padding: 10px 20px;
+          background-color: green;
+          color: white;
+          border: none;
+          border-radius: 5px;
+        "
+      >
+        審核SQL
+      </button>
+    </router-link>
   </div>
 </template>
 
