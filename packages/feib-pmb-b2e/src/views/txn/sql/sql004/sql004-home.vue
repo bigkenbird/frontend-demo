@@ -1,77 +1,41 @@
-<template
-  v-for="header in headers"
-  :key="header.value"
-  #[`item-`+header.value]="item"
->
-  <template v-if="header.value !== 'operation'">
-    <template v-if="item.editable">
-      <div class="comparison-field">
-        <div class="original-value">
-          <span class="value-label">原始值: </span>
-          <span
-            :class="{ 'diff-highlight-old': hasDifference(item, header.value) }"
-          >
-            {{ item[header.value] }}
-          </span>
-        </div>
-
-        <div class="new-value">
-          <span class="value-label">新值: </span>
-          <input
-            :value="globalItemMap.get(item.CODE)?.[header.value]"
-            @input="
-              updateMapValue(
-                item.CODE,
-                header.value,
-                ($event.target as HTMLInputElement).value
-              )
-            "
-            class="editable-input"
-            :class="{ 'diff-input-new': hasDifference(item, header.value) }"
-          />
-        </div>
-      </div>
-    </template>
-
-    <template v-else>
-      <template v-if="hasDifference(item, header.value)">
-        <div class="comparison-field comparison-display">
-          <div class="original-value">
-            <span class="value-label">原始值: </span>
-            <span class="diff-highlight-old"> {{ item[header.value] }} </span>
-          </div>
-          <div class="new-value">
-            <span class="value-label">當前值: </span>
-            <span class="diff-highlight-new">
-              {{ item.modifiedValue[header.value] }}
-            </span>
-          </div>
-        </div>
-      </template>
+<template>
+  <h2>審核名單</h2>
+  <button class="button" @click="searchEditRecord">查詢審核</button>
+  <input
+      class="sql004-input"
+      v-model="table"
+      rows="10"
+      placeholder="在此輸入您的Table名稱"
+    ></input>
+  <EasyDataTable
+    :headers="headers"
+    :items="items"
+    table-class-name="customize-table"
+  >
+    <template
+      v-for="header in headers"
+      :key="header.value"
+      #[`item-`+header.value]="item"
+    >
+      <template v-if="header.value !== 'operation'"> </template>
       <template v-else>
         {{ item[header.value] }}
       </template>
     </template>
-  </template>
-
-  <template v-if="header.value === 'operation'">
-    <div class="operation-wrapper">
-      <template v-if="item.editable">
-        <button @click="saveItem(item)">保存</button>
-        <button @click="cancelEdit(item)">取消</button>
-      </template>
-      <template v-else>
-        <button @click="modifyItem(item)">修改</button>
-        <button @click="deleteItem(item)">刪除</button>
-      </template>
-    </div>
-  </template>
+  </EasyDataTable>
 </template>
+
+<style scoped lang="scss">
+@import "sql004.scss";
+</style>
+
 <script setup lang="ts">
 import { ref, reactive } from "vue";
 // @ts-ignore
 import EasyDataTable from "vue3-easy-data-table";
 import "vue3-easy-data-table/dist/style.css";
+import { useAppService } from "@twix/ix-lib-vue";
+
 
 const table = ref("");
 let headers = ref<any>([]); // 修正為 any 避免類型錯誤
@@ -93,7 +57,11 @@ const hasDifference = (originalItem: any, key: string): boolean => {
   return originalItem[key] !== currentItem[key];
 };
 
-const executeSQL = async () => {
-  console.log("查詢Table:", table.value);
+const searchEditRecord = async () => {
+  let statusAndData = await useAppService().sendAndReceivePromiseAsync(
+    "http://localhost:8080/sql/table/review/get",
+    { table: table.value }
+  );
+  console.log(statusAndData);
 };
 </script>
