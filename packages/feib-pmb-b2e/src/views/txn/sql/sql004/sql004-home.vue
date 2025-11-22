@@ -7,39 +7,42 @@
       rows="10"
       placeholder="在此輸入您的Table名稱"
     ></input>
-  <EasyDataTable
-    :headers="headers"
-    :items="items"
-    table-class-name="customize-table"
-  >
-    <template
-      v-for="header in headers"
-      :key="header.value"
-      #[`item-`+header.value]="item"
-    >
-      <template v-if="header.value !== 'operation'"> </template>
-      <template v-else>
-        {{ item[header.value] }}
-      </template>
-    </template>
-  </EasyDataTable>
+  <table>
+      <thead>
+        <tr>
+          <th>欄位名稱</th>
+          <th>變更資料</th>
+          <th>原始資料</th>
+          </tr>
+        </thead>
+      <tbody>
+        <tr v-for="row in comparisonRows" :key="row.columnName">
+          <td>{{ row.columnName }}</td>
+          <td :class="{ 'highlight-diff': row.isDifferent }">
+            {{ row.value1 }}
+          </td>
+          <td :class="{ 'highlight-diff': row.isDifferent }">
+            {{ row.value2 }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
 </template>
 
 <style scoped lang="scss">
-@import "sql004.scss";
+@import "sql004.scssㄌ";
 </style>
 
 <script setup lang="ts">
 import { ref, reactive } from "vue";
 // @ts-ignore
-import EasyDataTable from "vue3-easy-data-table";
 import "vue3-easy-data-table/dist/style.css";
 import { useAppService } from "@twix/ix-lib-vue";
 
 
 const table = ref("");
-let headers = ref<any>([]); // 修正為 any 避免類型錯誤
-const items = ref<any[]>([]); // 修正為 any[]
+
+const comparisonRows = ref<any[]>([]); // 用於存儲比較結果的陣列
 
 const globalItemMap = reactive(new Map());
 
@@ -58,6 +61,7 @@ const hasDifference = (originalItem: any, key: string): boolean => {
 };
 
 const searchEditRecord = async () => {
+  console.log(table.value);
   let statusAndData = await useAppService().sendAndReceivePromiseAsync(
     "http://localhost:8080/sql/table/review/get",
     { table: table.value }
