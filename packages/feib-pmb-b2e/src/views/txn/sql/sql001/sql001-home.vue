@@ -5,46 +5,13 @@
   >
     <h2>SQL語法執行介面</h2>
     <router-link to="/sql/sql002/execute">
-      <button
-        style="
-          margin-top: 20px;
-          padding: 10px 20px;
-          background-color: green;
-          color: white;
-          border: none;
-          border-radius: 5px;
-        "
-      >
-        前往 SQL 執行頁面
-      </button>
+      <button class="sq001-button">前往 SQL 執行頁面</button>
     </router-link>
     <router-link to="/sql/sql003/execute">
-      <button
-        style="
-          margin-top: 20px;
-          padding: 10px 20px;
-          background-color: green;
-          color: white;
-          border: none;
-          border-radius: 5px;
-        "
-      >
-        前往 SQL DataTable執行頁面
-      </button>
+      <button class="sq001-button">前往 SQL DataTable執行頁面</button>
     </router-link>
-    <router-link to="/sql/sql004/view">
-      <button
-        style="
-          margin-top: 20px;
-          padding: 10px 20px;
-          background-color: green;
-          color: white;
-          border: none;
-          border-radius: 5px;
-        "
-      >
-        審核SQL
-      </button>
+    <router-link to="/sql/sql004/execute">
+      <button class="sq001-button">審核SQL</button>
     </router-link>
   </div>
 </template>

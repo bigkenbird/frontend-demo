@@ -62,7 +62,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, isRef, reactive } from "vue";
+import { ref, reactive } from "vue";
 import { useAppPage } from "@twix/feib-lib-vue";
 import { useAppService } from "@twix/ix-lib-vue";
 // @ts-ignore

@@ -11,26 +11,24 @@
       <thead>
         <tr>
           <th>欄位名稱</th>
-          <th>變更資料</th>
           <th>原始資料</th>
+          <th>變更資料</th>
           </tr>
         </thead>
       <tbody>
         <tr v-for="row in comparisonRows" :key="row.columnName">
           <td>{{ row.columnName }}</td>
-          <td :class="{ 'highlight-diff': row.isDifferent }">
-            {{ row.value1 }}
+          <td>{{ row.originValue }}</td>
+          <td :class="{ 'highlight-diff': row.showDiff }">
+            {{ row.modifiedValue }}
           </td>
-          <td :class="{ 'highlight-diff': row.isDifferent }">
-            {{ row.value2 }}
-          </td>
-        </tr>
+      </tr>
       </tbody>
     </table>
 </template>
 
 <style scoped lang="scss">
-@import "sql004.scssㄌ";
+@import "sql004.scss";
 </style>
 
 <script setup lang="ts">
@@ -42,7 +40,7 @@ import { useAppService } from "@twix/ix-lib-vue";
 
 const table = ref("");
 
-const comparisonRows = ref<any[]>([]); // 用於存儲比較結果的陣列
+const comparisonRows = ref<ComparisonRow[]>([]); // 用於存儲比較結果的陣列
 
 const globalItemMap = reactive(new Map());
 
@@ -66,6 +64,59 @@ const searchEditRecord = async () => {
     "http://localhost:8080/sql/table/review/get",
     { table: table.value }
   );
-  console.log(statusAndData);
+  
+  if("success"!==statusAndData[1].result){
+    alert("系統發生錯誤");
+    return;
+  }
+
+  let reviewRsList = statusAndData[1].reviewRsList;
+
+  if(reviewRsList.size===0){
+    alert("查無資料");
+    return;
+  }
+
+  for(let reviewRs of reviewRsList){
+    let modifiedData = reviewRs.reviewEntity.modifiedData;
+    let originEntity = reviewRs.originEntity;
+
+    console.log("modifiedData=",modifiedData);
+    console.log("originEntity=",originEntity);
+    
+
+    JSON.parse(modifiedData, (key, modifiedValue) => {
+      if(originEntity.hasOwnProperty(key)){
+        let originValue = originEntity[key];
+        if(originValue!==modifiedValue){
+          addComparisonRow(key, originValue, modifiedValue,true)
+        }
+        else{
+          addComparisonRow(key, originValue, modifiedValue,false)
+        }
+        
+      }
+    });
+
+    
+  }
+
+};
+
+const addComparisonRow = (
+  columnName: string, 
+  originValue: string, 
+  modifiedValue: string,
+  showDiff: boolean
+) => {
+  const newRow: ComparisonRow = {
+    columnName: columnName,
+    originValue: originValue,
+    modifiedValue: modifiedValue,
+    showDiff:showDiff
+  };
+
+  comparisonRows.value.push(newRow);
+  
 };
 </script>
